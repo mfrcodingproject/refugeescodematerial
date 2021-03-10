@@ -1,8 +1,8 @@
 # Sidebar navigation
 
 - label: 'Prework'
-   - label: 'Introduction'
-     link: '/prework#introduction'
+    - label: 'Introduction'
+      link: '/prework#introduction'
 - label: HTML
   items:
     - label: 'Contents'
