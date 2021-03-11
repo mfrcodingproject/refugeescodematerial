@@ -1,7 +1,7 @@
 # Sidebar navigation
 
 - label: 'Prework'
-  link: '/'
+  link: '/prework'
 - label: HTML
   items:
     - label: 'Contents'
