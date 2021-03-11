@@ -1,12 +1,26 @@
 # Sidebar navigation
 
 - label: 'Prework'
-  link: '/prework'
+  items:
+    - label: 'Introduction'
+      link: '/prework#introduction'
 - label: HTML
   items:
+    - label: 'Introduction'
+      link: '/html#introduction'
     - label: 'Contents'
       link: '/html#contents'
     - label: 'HTML Section project'
-      link: '/html#html-section-projects'
+      link: '/html#html-section-project'
     - label: 'Further reading'
       link: '/html#further-reading'
+- label: CSS
+  items:
+    - label: 'Introduction'
+      link: '/css#introduction'
+    - label: 'Contents'
+      link: '/css#contents'
+    - label: 'CSS Section project'
+      link: '/css#css-section-project'
+    - label: 'Further reading'
+      link: '/css#further-reading-3'

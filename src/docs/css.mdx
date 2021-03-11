@@ -1,0 +1,542 @@
+# CSS v2
+
+## Introduction
+
+CSS stands for `Cascading Style Sheets`.
+With CSS, we give **styles** to our webpage. As you remember, with HTML we created the webpage structure. Now, with CSS we will focus on how the structure 'looks'. For instance, you could alter the font, color, size and spacing of your content, split it into multiple columns, or add animations and other decorative features.
+In this module, you will learn how to select elements in your webpage and how to effectively style them.
+
+Imagine a **building** construction process:
+
+- 🏗️  **HTML** would represent the foundation and skeleton of the building (the structure)
+- 🏠 **CSS** will represent how it looks: is it made of glass? Is it painted in green? How big are the windows? Where will the door be? How will it be distributed?
+- 💡 In the next chapter, **JavaScript** would be the mechanical and electrical installation (the interaction).
+
+In order for you to have a broad, general sense of what CSS is, please read this article:
+
+[Learn to style HTML using CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS)
+
+## Goals
+
+At the end of this section you should be able to:
+
+- [ ]  Understand what CSS is.
+- [ ]  Learn to include stylesheets in our webpages.
+- [ ]  Learn main selectors.
+- [ ]  Master multiple selectors.
+- [ ]  Efficiently target HTML elements.
+- [ ]  Be able to change an element's style (border, padding etc)
+- [ ]  Understand the box model.
+- [ ]  Be able to identify cascade and CSS inheritance and use it to change different values.
+- [ ]  Position elements in your webpage effectively with position and flexbox.
+- [ ]  Create responsive content.
+- [ ]  Be able to use DevTools for CSS mastering.
+- [ ]  Create and apply custom properties.
+- [ ]  Extra: create animations and transitions.
+
+Let's start working!💪🏽
+
+## Contents
+
+## 01. Introduction to CSS
+
+### Basic CSS styling
+
+This is how CSS looks like:
+
+```css
+h1 {
+  color: blue;
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+p {
+  color: red;
+}
+```
+
+Let's read it:
+
+1. First, we have two selectors (`h1` and `p`). Each one will affect all `h1` and `p` tags in our page.
+2. The first one will look for all `h1` tags and will apply the properties between the brackets to those tags.
+    1. The first one sets the text color to blue.
+    2. The second sets the background color to yellow.
+    3. The third one puts a border around the header that is 1 pixel wide, solid (not dotted, or dashed, etc.), and colored black.
+3. The second selector (`p`) will change the text to red.
+
+Read this article to learn how CSS syntax works and see examples.
+
+[What is CSS?](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS)
+
+### **CSS Selector**
+
+One of the core things about CSS is to address the element that you want to style. If you fail to do so, you could be altering many other elements that you didn't want to style that way or not style anything at all due to lack of selector accuracy.
+
+Every selector of CSS is composed of a selector and its attributes. There are multiple selector types and hundreds of attributes, but most of the time it will follow the same structure.
+
+This is how a CSS selector looks like:
+
+![.CSS syntax explanation](./css-syntax.png)
+
+**Important**: If a property is unknown or if a value is not valid for a given property, the declaration is deemed invalid and is wholly ignored by the browser's CSS engine.
+
+You will read more about CSS selectors in the next section, this was just an introduction.
+
+### **Adding a stylesheet**
+
+There are three different ways to apply CSS to an HTML document that you'll commonly come across, some more useful than others.
+
+[Three Different Types of CSS Styles: The Complete Guide](https://www.hostinger.com/tutorials/difference-between-inline-external-and-internal-css)
+
+[How to add CSS](https://www.w3schools.com/css/css_howto.asp)
+
+- Why would you choose one over another?
+- What do you think is the cleanest way?
+
+### **Comments**
+
+Comments are parts of our CSS that will not affect the HTML. It is used to write messages for the programmer of the website. A comment looks like this:
+
+```jsx
+/* This is a CSS comment */
+```
+
+Content inside comments will not have any consequence on the styling.
+
+### **Exercises**
+
+1. **[Change the Color of Text](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/change-the-color-of-text)**
+2. **[Use CSS Selectors to Style Elements](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-css-selectors-to-style-elements)**
+3. **[Headline with the h2 Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-html-and-html5/headline-with-the-h2-element)**
+4. **[Inform with the Paragraph Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-html-and-html5/inform-with-the-paragraph-element)**
+5. **[Fill in the Blank with Placeholder Text](https://www.freecodecamp.org/learn/responsive-web-design/basic-html-and-html5/fill-in-the-blank-with-placeholder-text)**
+6. **[Uncomment HTML](https://www.freecodecamp.org/learn/responsive-web-design/basic-html-and-html5/uncomment-html)**
+7. **[Comment out HTML](https://www.freecodecamp.org/learn/responsive-web-design/basic-html-and-html5/comment-out-html)**
+8. **[Delete HTML Elements](https://www.freecodecamp.org/learn/responsive-web-design/basic-html-and-html5/delete-html-elements)**
+
+## 02. CSS Selectors
+
+In CSS, selectors are used to target the **HTML** **elements** we want to style on our web pages.
+
+There is a wide variety of CSS selectors available, allowing for fine-grained precision when selecting elements to style.
+
+Each selector can access the HTML items by different means; by id (#) by class (.), by HTML tag (`<>`) and there are even more specific selectors which you will read about in the next section.
+
+[CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
+
+### Main Selectors
+
+Main selectors include IDs, classes, attributes or HTML tags.
+
+[CSS Selectors](https://www.w3schools.com/css/css_selectors.asp)
+
+### Other selectors
+
+However, there's plenty of other selectors which will help you attack the element or elements that you want to style in particular circumstances. Some of these are called pseudo-class or pseudo selectors.
+
+[CSS Selectors Reference](https://www.w3schools.com/cssref/css_selectors.asp)
+
+[CSS4-Selectors | All selectors from level 4 to 1](https://css4-selectors.com/selectors/)
+
+### Combining selectors
+
+Selectors can be used individually or collectively. They can be very powerful when combined.
+
+[Combinators](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators)
+
+[Multiple Class / ID and Class Selectors | CSS-Tricks](https://css-tricks.com/multiple-class-id-selectors/)
+
+[Speed Up by Grouping Multiple CSS Selectors](https://www.lifewire.com/grouping-multiple-css-selectors-3467065)
+
+- Can you use several selectors at the same time?
+- Why would you attempt to do this?
+- Is there a possible way of selecting all `<p>` on a website except the last one?
+
+### **Exercises**
+
+1. **[Use a CSS Class to Style an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-a-css-class-to-style-an-element)**
+2. **[Style Multiple Elements with a CSS Class](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/style-multiple-elements-with-a-css-class)**
+3. **[Change the Font Size of an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/change-the-font-size-of-an-element)**
+4. **[Set the Font Family of an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/set-the-font-family-of-an-element)**
+5. **[Import a Google Font](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/import-a-google-font)**
+6. **[Specify How Fonts Should Degrade](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/specify-how-fonts-should-degrade)**
+7. **[Size Your Images](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/size-your-images)**
+8. **[Add Borders Around Your Elements](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/add-borders-around-your-elements)**
+9. **[Add Rounded Corners with border-radius](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/add-rounded-corners-with-border-radius)**
+10. **[Make Circular Images with a border-radius](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/make-circular-images-with-a-border-radius)**
+11. **[Give a Background Color to a div Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/give-a-background-color-to-a-div-element)**
+12. **[Use Attribute Selectors to Style Elements](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-attribute-selectors-to-style-elements)**
+
+Also, here is a game to help you assimilate all these concepts of selectors, multiple selectors, pseudo selectors. Have a try and let's see if you can get to the end!! ⬇️
+
+[CSS Diner](https://flukeout.github.io/)
+
+### Further Reading
+
+**Extra!**
+
+If you want to have a broader understanding of CSS and how it works, check this article out. However, this is not part of the mandatory materials of the course.
+
+[How CSS works](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_works#applying_css_to_the_dom)
+
+## 03. Box Model
+
+Every HTML element is represented as a rectangular box, with the box's content, padding, border, and margin built up around one another like the layers of an onion. Before understanding how to create CSS layouts, you need to understand the box model.
+
+### CSS Box model
+
+![Box model](./box-model.png)
+
+![Spacing](./spacing.png)
+
+This representation of elements as boxes allows us to effectively distribute content within our webpage. There are different approaches to do so, but before we get to that part, make sure you understand how this works:
+
+[Introduction to the CSS basic box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
+
+See an example of how box model works here
+
+[CSS Box Model](https://www.w3schools.com/css/css_boxmodel.asp)
+
+### CSS Units
+
+Some CSS attributes require a unit value. Some that you might come across already is the pixel value (px) or the percentage (%). There are many, we will review the most important.
+
+Just like we measure meters in a room to find furniture that fits in it, we need to measure the elements on our webpage. CSS Units allow us to measure and compare different items.
+
+Read about absolute and relative numeric values and percentages:
+
+[CSS values and units](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units)
+
+### Box model example
+
+As we saw at the beginning of this chapter, the **actual** width and height of a box will be
+
+> Width = Content-box + padding + border + margin
+
+So if we do this:
+
+```
+.box {
+  width: 200px;
+  border: 1px solid green;
+  padding: 1rem;
+  margin: 2rem;
+}
+```
+
+The actual *rendered* (as seen on screen) width would be
+
+> width = 200px + 1rem + 1px + 2rem
+
+Hard to calculate, isn't it?
+
+### Box sizing
+
+To avoid the confusion we've seen before, most developers change the default browser behavior.
+
+**box-sizing** **is a CSS property that sets how the total width and height of an element is calculated.** When we set the value of box-sizing to border-box the final calculation will differ. The width and height properties will include the content, padding, and border, but do not include the margin.
+
+This part can be easy to implement but hard to understand, so read the article below to make sure you acquire the knowledge before executing it.
+
+[box-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)
+
+### Exercises
+
+1. **[Set the id of an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/set-the-id-of-an-element)**
+2. **[Use an id Attribute to Style an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-an-id-attribute-to-style-an-element)**
+3. **[Adjust the Padding of an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/adjust-the-padding-of-an-element)**
+4. **[Adjust the Margin of an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/adjust-the-margin-of-an-element)**
+5. **[Add Different Padding to Each Side of an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/add-different-padding-to-each-side-of-an-element)**
+6. **[Add Different Margins to Each Side of an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/add-different-margins-to-each-side-of-an-element)**
+7. **[Use Clockwise Notation to Specify the Padding of an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-clockwise-notation-to-specify-the-padding-of-an-element)**
+8. **[Use Clockwise Notation to Specify the Margin of an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-clockwise-notation-to-specify-the-margin-of-an-element)**
+9. **[Use Clockwise Notation to Specify the Margin of an Element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-clockwise-notation-to-specify-the-margin-of-an-element)**
+
+## 04. Cascade and inheritance
+
+Cascade and inheritance are very important in order to determine which selector will have more power over the rest.
+
+Sometimes, different styles are applied to the same element. In order to decide which style should prevail, cascade and inheritance will have their say. Read these articles to understand this conflicting rules.
+
+[Introducing the CSS Cascade](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)
+
+[Cascade and inheritance](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance)
+
+### Exercises
+
+1. **[Inherit styles from the body element](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/inherit-styles-from-the-body-element)**
+2. **[Prioritize one style over another](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/prioritize-one-style-over-another)**
+3. **[Override styles in subsequent CSS](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/override-styles-in-subsequent-css)**
+4. **[Override class declarations by styling ID attributes](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/override-class-declarations-by-styling-id-attributes)**
+5. **[Override class declarations with inline styles](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/override-class-declarations-with-inline-styles)**
+6. **[Override all other styles by using importants](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/override-all-other-styles-by-using-important)**
+- What happens when different opposite styles (such as color: red, color: green) are applied to the same element?
+- Do you think how cascade and inheritance can affect a project with 200 stylesheets?
+
+### Further reading
+
+If you want to learn advanced topics on cascade and inheritance, check this article
+
+[How CSS works: Understanding the cascade - LogRocket Blog](https://blog.logrocket.com/how-css-works-understanding-the-cascade-d181cd89a4d8/)
+
+## 05. CSS Layout
+
+CSS page layout techniques allow us to take elements contained in a web page and control where they are positioned relative to their default position in normal layout flow.
+
+As aforementioned, distributing content in our webpage flow can be dealt by several means. Have a look at the main options.
+
+### Default layout flow: inline vs block
+
+Normal flow is how the browser lays out HTML pages by default when you do nothing to control page layout.
+
+[display](https://developer.mozilla.org/en-US/docs/Web/CSS/display)
+
+[Inline vs Inline-block vs Block](https://dev.to/shimphillip/inline-vs-inline-block-vs-block-280h)
+
+### Positioning
+
+Positioning allows you to take elements out of the normal document layout flow, and make them behave differently; for example sitting on top of one another, or always remaining in the same place inside the browser viewport.
+
+[position](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+
+### Flexbox
+
+The main goal of flexbox is to craft one-dimensional layout structures (vertical or horizontal). Items in flex layouts will shrink or grow to fill the space available and will position relative to the parent container.
+
+[Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
+
+[Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+
+[A Complete Guide to Flexbox | CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+- What do you find it easier? Positioning left and right or using flexbox?
+- Can you think of a clear example of webpage where flexbox can be used?
+
+### Exercises
+
+1. **[Change an element's relative position](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/change-an-elements-relative-position)**
+2. **[Move a relatively positioned element with CSS offsets](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/move-a-relatively-positioned-element-with-css-offsets)**
+3. **[Lock an element to its parent with absolute positioning](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/lock-an-element-to-its-parent-with-absolute-positioning)**
+4. **[Lock an element to the browser window with fixed positioning](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/lock-an-element-to-the-browser-window-with-fixed-positioning)**
+5. **[Center an element horizontally using the margin property](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/center-an-element-horizontally-using-the-margin-property)**
+6. **[Use `display: flex` to position two boxes](https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-display-flex-to-position-two-boxes)**
+7. **[Add flex superpowers to the tweet embed](https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/add-flex-superpowers-to-the-tweet-embed)**
+8. **[Apply the `flex-direction` property to create rows in the tweet embed](https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/apply-the-flex-direction-property-to-create-rows-in-the-tweet-embed)**
+9. **[Apply the `flex-direction` property to create a column in the tweet embed](https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/apply-the-flex-direction-property-to-create-a-column-in-the-tweet-embed)**
+10. **[Use the `justify-content` property in the tweet embed](https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-justify-content-property-in-the-tweet-embed)**
+11. **[Use the `align-items` property in the tweet embed](https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-align-items-property-in-the-tweet-embed)**
+12. **[Use the `align-self` property](https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/use-the-align-self-property)**
+13. Get to the end of this game to master Flexbox! ⬇️
+
+[Flexbox Froggy](https://flexboxfroggy.com/#es)
+
+### Further reading
+
+[A Complete Guide to Flexbox | CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+## 06. Responsive
+
+It is fairly common to create a Website or app that changes its user interface depending on the browser or device accessing the site to provide an optimized experience.
+
+Developers usually create a single version of the website which doesn't care about what browser or platform is accessing the site, but instead uses feature tests to find out what code features the browser supports or what the values of certain browser features are, and then adjusts the code appropriately.
+
+### Basics
+
+Please read these articles to know the basic concepts of responsive designs.
+
+[Responsive design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
+
+[The building blocks of responsive design](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/responsive_design_building_blocks)
+
+### Using **Developer Tools Responsive Design Mode**
+
+Responsive Design Mode is a tool from your browser developer tools that gives you a simple way to simulate a range of layouts of different devices — particularly mobile phones and tablets as well as desktops and laptops.
+
+Read this article to understand how it works
+
+[Responsive Design Mode](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode)
+
+### Media queries
+
+Media queries lets you adapt your site or app depending on the presence or value of various device characteristics and parameters.
+
+See an example of its syntax:
+
+```css
+.box {
+    width: 75%;
+}
+
+@media all and (max-width: 1024px) {
+  .box {
+      width: 50%;
+  }
+}
+```
+
+In order for you to master media queries, read the following article. Be ready to start typing!
+
+[Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
+
+### Exercises
+
+1. **[Understand absolute versus relative units](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/understand-absolute-versus-relative-units)**
+2. **[Create a media query](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-principles/create-a-media-query)**
+3. **[Make an image responsive](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-principles/make-an-image-responsive)**
+4. **[Use a retina image for higher resolution displays](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-principles/use-a-retina-image-for-higher-resolution-displays)**
+5. **[Make typography responsive](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-principles/make-typography-responsive)**
+
+- What platforms do you use to access the internet?
+- Do you know phone applications which also have a webpage? Are they the same or different? Do they look the same? Do they have similar functionalities?
+
+## 07. Custom Properties
+
+**Custom properties** (sometimes referred to as CSS variables) are variables defined by CSS authors that contain specific values to be reused throughout a document (similar to JS variables). They are set using custom property notation (e.g., `--main-color: black;`) and are accessed using the var() function (e.g., `color: var(--main-color);`).
+
+Complex websites have very large amounts of CSS, often with a lot of repeated values. For example, the same color might be used in hundreds of different places, requiring global search and replace if that color needs to change. Custom properties allow a value to be stored in one place, then referenced in multiple other places.
+
+[Using CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+
+```css
+.parent-element {
+    --main-color: #000;
+}
+
+.child-element {
+    background: var(--main-color);
+}
+
+/* Custom properties using fallback value */
+.sibling-element[attr] {
+    background: var(--main-color, #fff);
+}
+
+```
+
+### Exercises
+
+1. **[Use CSS Variables to change several elements at once](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-css-variables-to-change-several-elements-at-once)**
+2. **[Create a custom CSS Variable](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/create-a-custom-css-variable)**
+3. **[Use a custom CSS Variable](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-a-custom-css-variable)**
+4. **[Attach a Fallback value to a CSS Variable](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/attach-a-fallback-value-to-a-css-variable)**
+5. **[Inherit CSS Variables](https://www.freecodecamp.org/learn/responsive-web-design/basic-css/inherit-css-variables)**
+
+**Well done!** You've just arrived to the end part of the CSS syllabus. Congratulations!
+
+Before continuing, make sure you can tick all the goals (except the project one, which comes next), and you don't have any doubts. Otherwise, ask the teachers! 🤓
+
+# **CSS Section project**
+
+Hi there again! Congratulations on finishing this second section of the course. Right now, you already know the basics (and some) of HTML and CSS, two powerful technologies that lets you build beautiful sites. Still, there's so much more you can learn (and you will in the next sections), but for now, there's so many things you can start building already. For that, we've linked another project from freeCodeCamp. This one also includes HTML (Unfortunately, there's not so much you can do with CSS without HTML as you'll know by now) but you should feel comfortable enough with it to start focusing on **how** you want your website to look like.
+
+Here you'll need to build a personal portfolio. The exercises give you an example on how it should look, but feel free to include your own designs and look for inspiration on the internet (feel free to ask your teachers if you want some examples). Try to take this exercise seriously enough to keep posting your future achievements, so you can use them when looking for a job. They can prove really useful in those circumstances!
+
+As always, if you feel like you're stuck, we're here to help you! Good luck!
+
+1.**[Build a personal portfolio webpage](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-personal-portfolio-webpage)**
+
+## Further Reading
+
+This module includes advanced knowledge for those of you who are eager to learn more! However, it is not part of the curriculum.
+
+## Transitions and animations
+
+It is common when developing a website to add some interactive information using transitions or animations to improve the user experience and display some beautiful interactions.
+
+Developers use two different techniques depending on what type of animation do they need: CSS transitions and CSS animations. While CSS transitions are somehow animations, these are much simpler than the latter. Animations can be very advanced.
+
+### Transitions
+
+[Using CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)
+
+[transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)
+
+### Animations
+
+[Using CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations)
+
+### Keyframes
+
+[@keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
+
+### Exercises
+
+1. **[Learn how the CSS keyframes and animation properties work](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/learn-how-the-css-keyframes-and-animation-properties-work)**
+2. **[Use CSS animation to change the hover state of a button](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/use-css-animation-to-change-the-hover-state-of-a-button)**
+3. **[Modify fill mode of an animation](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/modify-fill-mode-of-an-animation)**
+4. **[Create movement using CSS animation](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/create-movement-using-css-animation)**
+5. **[Create visual direction by fading an element from left to right](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/create-visual-direction-by-fading-an-element-from-left-to-right)**
+6. **[Animate elements continually using an infinite animation count](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/animate-elements-continually-using-an-infinite-animation-count)**
+7. **[Make a CSS heartbeat using an infinite animation count](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/make-a-css-heartbeat-using-an-infinite-animation-count)**
+8. **[Animate elements at variable rates](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/animate-elements-at-variable-rates)**
+9. **[Animate multiple elements at variable rates](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/animate-multiple-elements-at-variable-rates)**
+10. **[Change animation timing with keywords](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/change-animation-timing-with-keywords)**
+
+### Class naming methodology [BEM]
+
+On smaller sites, how you organize your styles isn’t usually a big concern. However, in larger projects, how you organize your code is key. Nowadays, most of the companies use at least one method of CSS naming methodology to ensure performance, structure and maintainability.
+
+BEM is the abbreviation of **Block, Element, Modifier**:
+
+- **Block**: Standalone entity that is meaningful on its own (header, menu, input),
+- **Element**: A part of a block that has no standalone meaning and is semantically tied to its block. (header -> title, menu -> item)
+- **Modifier**: Use them to change appearance or behavior. (header -> title -> active, menu -> item -> highlighted)
+
+### **Using BEM**
+
+```html
+<button class="button">
+  Normal button
+</button><button class="button button--state-success">
+  Success button
+</button><button class="button button--state-danger">
+  Danger button
+</button>
+```
+
+```css
+.button {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #D5D5D5;
+  background-image: linear-gradient(#EEE, #DDD);
+  font: 700 13px/18px Helvetica, arial;
+}
+.button--state-success {
+  color: #FFF;
+  background: #569E3D linear-gradient(#79D858, #569E3D) repeat-x;
+  border-color: #4A993E;
+}
+.button--state-danger {
+  color: #900;
+}
+```
+
+**Further reading:**
+
+- **[Bem Documentation](http://getbem.com/)**
+- **[Bem Methodology for small projects](https://www.smashingmagazine.com/2014/07/bem-methodology-for-small-projects/)**
+
+### Can I use
+
+Not every CSS and JS feature is supported for every browser. Some projects may require to support an old version of a browser, and we might not be able to use this feature. It is very important to ensure that the browsers we expect our customers are going to use are supported by our code. "Can I use" provides up-to-date browser support tables for support of front-end web technologies on desktop and mobile web browsers.
+
+![https://mfrcodingproject.github.io/students_material/en/assets/caniuse.png](https://mfrcodingproject.github.io/students_material/en/assets/caniuse.png)
+
+For example, can I use flexbox in every browser? No, some browsers like **[Internet Explorer 11 do not support standard CSS flexbox](https://caniuse.com/#search=flexbox)**
+
+In case a browser does not support a feature, we can query if the browser does support this feature and offer an alternative:
+
+```css
+div {
+    display: flex;
+}
+
+@supports (display: grid) {
+  div {
+    display: grid;
+  }
+}
+```
