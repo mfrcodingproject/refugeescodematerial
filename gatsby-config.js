@@ -8,7 +8,7 @@ module.exports = {
     siteAuthor: `@mfr`,
     siteImage: `/banner.png`,
     siteLanguage: `en`,
-    themeColor: `#8257E6`,
+    themeColor: `#59B4D6`,
     basePath: `/`,
   },
   flags: { PRESERVE_WEBPACK_CACHE: true },
