@@ -1,0 +1,104 @@
+## Further Reading
+
+This module includes advanced knowledge for those of you who are eager to learn more! However, it is not part of the curriculum.
+
+## Transitions and animations
+
+It is common when developing a website to add some interactive information using transitions or animations to improve the user experience and display some beautiful interactions.
+
+Developers use two different techniques depending on what type of animation do they need: CSS transitions and CSS animations. While CSS transitions are somehow animations, these are much simpler than the latter. Animations can be very advanced.
+
+### Transitions
+
+[Using CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)
+
+[transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)
+
+### Animations
+
+[Using CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations)
+
+### Keyframes
+
+[@keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
+
+### Exercises
+
+1. **[Learn how the CSS keyframes and animation properties work](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/learn-how-the-css-keyframes-and-animation-properties-work)**
+2. **[Use CSS animation to change the hover state of a button](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/use-css-animation-to-change-the-hover-state-of-a-button)**
+3. **[Modify fill mode of an animation](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/modify-fill-mode-of-an-animation)**
+4. **[Create movement using CSS animation](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/create-movement-using-css-animation)**
+5. **[Create visual direction by fading an element from left to right](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/create-visual-direction-by-fading-an-element-from-left-to-right)**
+6. **[Animate elements continually using an infinite animation count](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/animate-elements-continually-using-an-infinite-animation-count)**
+7. **[Make a CSS heartbeat using an infinite animation count](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/make-a-css-heartbeat-using-an-infinite-animation-count)**
+8. **[Animate elements at variable rates](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/animate-elements-at-variable-rates)**
+9. **[Animate multiple elements at variable rates](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/animate-multiple-elements-at-variable-rates)**
+10. **[Change animation timing with keywords](https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/change-animation-timing-with-keywords)**
+
+### Class naming methodology [BEM]
+
+On smaller sites, how you organize your styles isn’t usually a big concern. However, in larger projects, how you organize your code is key. Nowadays, most of the companies use at least one method of CSS naming methodology to ensure performance, structure and maintainability.
+
+BEM is the abbreviation of **Block, Element, Modifier**:
+
+- **Block**: Standalone entity that is meaningful on its own (header, menu, input),
+- **Element**: A part of a block that has no standalone meaning and is semantically tied to its block. (header -> title, menu -> item)
+- **Modifier**: Use them to change appearance or behavior. (header -> title -> active, menu -> item -> highlighted)
+
+### **Using BEM**
+
+```html
+<button class="button">
+  Normal button
+</button><button class="button button--state-success">
+  Success button
+</button><button class="button button--state-danger">
+  Danger button
+</button>
+```
+
+```css
+.button {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #D5D5D5;
+  background-image: linear-gradient(#EEE, #DDD);
+  font: 700 13px/18px Helvetica, arial;
+}
+.button--state-success {
+  color: #FFF;
+  background: #569E3D linear-gradient(#79D858, #569E3D) repeat-x;
+  border-color: #4A993E;
+}
+.button--state-danger {
+  color: #900;
+}
+```
+
+**Further reading:**
+
+- **[Bem Documentation](http://getbem.com/)**
+- **[Bem Methodology for small projects](https://www.smashingmagazine.com/2014/07/bem-methodology-for-small-projects/)**
+
+### Can I use
+
+Not every CSS and JS feature is supported for every browser. Some projects may require to support an old version of a browser, and we might not be able to use this feature. It is very important to ensure that the browsers we expect our customers are going to use are supported by our code. "Can I use" provides up-to-date browser support tables for support of front-end web technologies on desktop and mobile web browsers.
+
+![https://mfrcodingproject.github.io/students_material/en/assets/caniuse.png](https://mfrcodingproject.github.io/students_material/en/assets/caniuse.png)
+
+For example, can I use flexbox in every browser? No, some browsers like **[Internet Explorer 11 do not support standard CSS flexbox](https://caniuse.com/#search=flexbox)**
+
+In case a browser does not support a feature, we can query if the browser does support this feature and offer an alternative:
+
+```css
+div {
+    display: flex;
+}
+
+@supports (display: grid) {
+  div {
+    display: grid;
+  }
+}
+```
