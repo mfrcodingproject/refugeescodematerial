@@ -4,6 +4,14 @@
   items:
     - label: 'Introduction'
       link: '/prework#introduction'
+- label: 'Git'
+  items:
+    - label: 'Introduction'
+      link: '/git#introduction'
+    - label: 'Contents'
+      link: '/git#contents'
+    - label: 'Further reading'
+      link: '/git#further-reading'
 - label: HTML
   items:
     - label: 'Introduction'

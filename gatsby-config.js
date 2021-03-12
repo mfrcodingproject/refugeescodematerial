@@ -3,7 +3,7 @@ module.exports = {
     siteTitle: `Refugees Code`,
     defaultTitle: `Refugees Code`,
     siteTitleShort: `Refugees Code`,
-    siteDescription: `Out of the box Gatsby Theme for creating documentation websites easily and quickly`,
+    siteDescription: `Self-led student material to go through RefugeesCode frontend course`,
     siteUrl: `https://rocketdocs.netlify.app`,
     siteAuthor: `@mfr`,
     siteImage: `/banner.png`,
