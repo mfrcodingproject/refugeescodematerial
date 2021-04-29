@@ -1,0 +1,370 @@
+## Contents
+
+## 01. But first, what is a CSS preprocessor?
+
+A **CSS** preprocessor is a program that lets you generate **CSS** from the preprocessor's own unique syntax. There are many **CSS** preprocessors to choose from, however most **CSS** preprocessors will add some features that don't exist in pure **CSS**, such as mixins, nesting selector, inheritance selector, and so on. These features make the **CSS** structure more readable and easier to maintain.
+
+### Compiling you SCSS
+
+Preprocessing CSS is becoming an standard in the workflow of web development. Preprocessing is a process in which the code we write in another language (Sass, LESS, Stylus, postCSS...etc) is converted automatically to standard CSS before being executed in our website. Using a CSS preprocessor as Sass will give you everything CSS has and many more things (mixins, conditionals, nesting...etc.). This features are intended to make CSS development faster and more effective
+
+> Sass file ----> preprocessor tool ----> Standard CSS
+
+We will be learning Sass since is the most common CSS preprocessor language but there are more:
+
+- [Sass: Sintactically awesome Style Sheets](https://sass-lang.com/)
+- [LESS](http://lesscss.org/)
+- [Stylus](http://stylus-lang.com/)
+- [PostCSS](https://postcss.org/)
+
+### SASS vs SCSS
+
+You will probably hear about **SCSS** instead of **Sass**. **SCSS** is the new syntax that **Sass** uses, which is really similar to plain **CSS:**
+
+**SASS Syntax**
+
+```sass
+$font-stack: Helvetica, sans-serif
+$primary-color: #333
+
+body
+  font: 100% $font-stack
+  color: $primary-color
+```
+
+**SCSS Syntax (The one we will be using)**
+
+```scss
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+```
+
+Can you spot the differences?
+
+- In **SASS** there are no semicolons
+- In **SASS** there are no curly braces
+- The spacing in **SASS** is really important
+
+## Exercises
+
+1. To get you ready for what's coming next, you will need to convert the project from the **CSS** section ([https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-personal-portfolio-webpage](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-personal-portfolio-webpage)) into a **SCSS** project.
+
+## 02. **What can I do with SCSS?**
+
+SCSS provides a series of tools and utils that will help you to build your site styles in a faster and simpler way:
+
+### Variables
+
+A variable is a way of defining something to be reused. For example, in CSS is very common to use HEX or RGB colors, which are a bit difficult to remember, or to change them all at the same time.
+
+To define variables you only need a name prefixed with the `$` symbol and a value:
+
+```scss
+$name: value;
+```
+
+Then, you can define variables like this:
+
+```scss
+$myColor: rgba(154, 165, 67, 0.5);
+$space: 16px;
+$spaceHalf: 8px;
+$companyLogoPath: './images/awesomeLogo.jpg';
+```
+
+And then reuse them everywhere:
+
+```scss
+.my-button {
+	border-color: $myColor;
+	background-color: $myColor;
+	padding: $spaceHalf $space;
+}
+
+.my-header {
+	background-color: $myColor;
+	margin-bottom: $space;
+}
+
+.my-header-logo {
+  background-image: url($companyLogoPath);
+}
+
+.my-footer-logo {
+  background-image: url($companyLogoPath);
+}
+```
+
+Variables in SCSS can hold every value we want, such as colors, fonts, sizes and any other value we can use as a CSS property.
+
+Although SASS variables are really handy and one of the main features of CSS preprocessors, they are less powerful than Custom Properties, since the latter let you modify their value via Javascript, which can be extremely valuable when creating all sorts of visual effects in your app.
+
+Use custom properties instead of Sass variables if the browser supports it.
+
+📖 [More in depth information about Sass variables](https://sass-lang.com/documentation/variables)
+
+### E**xercises**
+
+1. [Learn to store data via SASS variables](https://www.freecodecamp.org/learn/front-end-libraries/sass/store-data-with-sass-variables)
+
+### Nesting
+
+When writing HTML you've probably noticed that it has a clear nested and visual hierarchy. CSS, on the other hand, doesn't.
+
+Nesting selectors will help to keep your styles **clean** and **tidy**, following the same visual hierarchy of your HTML**.** To use nesting you only need to define something like this:
+
+```scss
+.my-header {
+	a {
+		color: blue;
+  }
+
+	.my-button {
+		border: 1px solid red;
+	}
+}
+```
+
+Which will be converted to:
+
+```scss
+.my-header a {
+	color: blue;
+}
+
+.my-header .my-button {
+	border: 1px solid red;
+}
+```
+
+Sometimes, you may need to refer to the parent selector when nesting different styles, like when you need to add some selector like :**hover** to update the styles. To do that, you can use the `&` ****character:
+
+```scss
+.my-button {
+	color: red;
+	&:hover {
+		color: blue
+	}
+}
+```
+
+With that selector the color of `.my-button` will change when the user hovers it.
+
+> Execute that code on Sassmeister to see what happens
+
+📖 [Sass nesting basics](https://www.sitepoint.com/sass-basics-nesting/)
+
+📖 [The Sass ampersand](https://css-tricks.com/the-sass-ampersand/)
+
+### E**xercises**
+
+1. [Nest CSS with SASS](https://www.freecodecamp.org/learn/front-end-libraries/sass/nest-css-with-sass)
+
+## 03. Advanced Sass
+
+Before getting on with the next section, get a CSS file from a previous project and try to convert it (or part of it) to Sass using sassmeister. Remember to include custom properties, nesting selectors and sass variables.
+
+After you've done the above part, follow these steps to install a Sass compiler:
+
+1. Download and install [KoalaApp](http://koala-app.com/)
+2. Create a new folder named `04_advanced_ui` in your classes folder
+3. Create a file named `main.scss`.
+4. Copy and paste the code from Sassmeister you just created.
+5. Open `Koala` and on the `+` symbol. Search the folder we just created and add it.
+6. You should see your `main.scss` file. Select it.
+7. Click on `compile` button.
+
+This process should create two files: `main.css` and `main.map.css`. Forget about the last one for now, its just a [sourcemap](https://blog.teamtreehouse.com/introduction-source-maps)
+
+Open you `main.css`. It should be the CSS compiled as Sassmeister did. Now you are able to compile your own files.
+Remember that you should modify only on the `main.scss` but your HTML should include the automatically generated `main.css` file.
+
+The process is the following:
+
+1. Edit `main.scss`
+2. Compile using koala.
+3. Link the generated `main.css` to your html `head`
+4. Confirm that the CSS works.
+5. Modify and compile again `main.scss`
+
+### Partials
+
+CSS files on large applications can become difficult to read because
+they can become reaaaaaally long. Sass allows to separate the files into
+small chunks of code that can be imported into other files to reduce
+the size. Files can be separated by responsibility.
+
+> Architecting a CSS project is probably one of the most
+difficult things you will have to do in a project’s life. Keeping the
+architecture consistent and meaningful is even harder.
+
+For example, this could be a folder structure according to Sass Guidelines:
+
+```bash
+styles/
+|
+|– abstracts/
+|   |– _variables.scss    # Sass Variables
+|   |– _mixins.scss       # Sass Mixins
+|
+|– base/
+|   |– _reset.scss        # Reset/normalize
+|   |– _typography.scss   # Typography rules
+|   …                     # Etc.
+|
+|– components/
+|   |– _buttons.scss      # Buttons
+|   |– _carousel.scss     # Carousel
+|   |– _cover.scss        # Cover
+|   |– _dropdown.scss     # Dropdown
+|   …                     # Etc.
+|
+|– layout/
+|   |– _navigation.scss   # Navigation
+|   |– _header.scss       # Header
+|   |– _footer.scss       # Footer
+|   |– _sidebar.scss      # Sidebar
+|   |– _forms.scss        # Forms
+|   …                     # Etc.
+|
+|– pages/
+|   |– _home.scss         # Home specific styles
+|   |– _contact.scss      # Contact specific styles
+|   …                     # Etc.
+|
+|– main.scss              # Main Sass file
+```
+
+### Imports
+
+From the main file, we can import the chunks of CSS into a single file that will be compiled into a CSS file. Magic!
+
+The `main.scss` file could look somethink like this:
+
+```sass
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'layout/navigation';
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/forms';
+
+@import 'components/buttons';
+@import 'components/carousel';
+@import 'components/cover';
+@import 'components/dropdown';
+
+@import 'pages/home';
+@import 'pages/contact';
+
+@import 'themes/theme';
+@import 'themes/admin';
+```
+
+### Rules for import
+
+Notice that files that there are chunks that will be imported are preceded by the symbol `_` as in `_variables.scss` but, when you import them, you should omit the underscore symbol. This symbol is telling sass that this file is just a part of a larger file and will not try to compile it.
+
+Remember:
+
+- one file per `@import`;
+- one `@import` per line;
+- no new line between two imports from the same folder;
+- a new line after the last import from a folder;
+- file extensions and leading underscores omitted.
+
+### Order of imports
+
+And remember, in CSS the order of the CSS is important. If two rules
+have the same name, rules will be merged and the last one will overwrite
+the previous one. Be careful with your project naming.
+
+By the time of this writing, the use of `@import` is being deprecated in favour of `@use` . For now you don't need to worry about this. We think it's important that you know first this basic feature to know the differences between one and another and then find out about what `@use` has to offer to start using it. For now, you can safely use both of them interchangeably. Read the following articles to know more!
+
+📖 [Sass Partials](https://riptutorial.com/sass/example/14566/partials)
+
+📖 [The new Sass Module System: Out with `@import`, in with `@use`](https://stefaniefluin.medium.com/the-new-sass-module-system-out-with-import-in-with-use-e1bd8ba032d0)
+
+📖 [Introducing Sass modules](https://css-tricks.com/introducing-sass-modules/)
+
+### Exercises
+
+1. [Split your styles into smaller chunks with partials](https://www.freecodecamp.org/learn/front-end-libraries/sass/split-your-styles-into-smaller-chunks-with-partials)
+
+### Mixins
+
+Mixins are one of the most used features from the whole Sass language. They are the key to reusability and DRY components. And for good reason: mixins allow authors to define styles that can be reused throughout the stylesheet.
+
+They can contain full CSS rules and pretty much everything that is  allowed anywhere in a Sass document. They can even take arguments, just like functions. Needless to say, the possibilities are endless.
+
+This is how a mixin looks like:
+
+```sass
+/*
+// Define the mixin
+// This mixin is named `size` and receives two parameters: width and height
+// If the height parameter its not set, it will be equal to width
+// This mixin returns a piece of CSS with width and height.
+*/
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/*
+// And use it anywhere
+*/
+.box {
+    @include size(1rem);
+}
+
+// Equals
+/*
+    width: 1rem;
+.box {
+    height: 1rem;
+*/
+```
+
+### Argument-less mixins
+
+A mixin might not receive any arguments:
+
+```sass
+@mixin large-font {
+    font-family: 'Roboto', Arial;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.selector {
+    @include large-font;
+}
+```
+
+📖 [How to use Sass Mixins](https://scotch.io/tutorials/how-to-use-sass-mixins)
+
+📖 [Sass Mixins](https://marksheet.io/sass-mixins.html)
+
+### **Exercises**
+
+1. [Create reusable CSS with mixins](https://www.freecodecamp.org/learn/front-end-libraries/sass/create-reusable-css-with-mixins)
+
+### Sass Exercises
+
+1. [Use `@if` and `@else` to add logic to your styles](https://www.freecodecamp.org/learn/front-end-libraries/sass/use-if-and-else-to-add-logic-to-your-styles)
+2. [Use `@for` to create a sass loop](https://www.freecodecamp.org/learn/front-end-libraries/sass/use-for-to-create-a-sass-loop)
+3. [Use `@each` to map over items in a list](https://www.freecodecamp.org/learn/front-end-libraries/sass/use-each-to-map-over-items-in-a-list)
+4. [Apply a style until a condition is met with `@while`](https://www.freecodecamp.org/learn/front-end-libraries/sass/apply-a-style-until-a-condition-is-met-with-while)
+5. [Extend one set of css styles to another element](https://www.freecodecamp.org/learn/front-end-libraries/sass/extend-one-set-of-css-styles-to-another-element)

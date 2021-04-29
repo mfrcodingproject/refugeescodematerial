@@ -38,3 +38,21 @@
       link: '/css/css-section-project'
     - label: 'Further reading'
       link: '/css/further-reading'
+- label: SASS
+  items:
+    - label: 'Introduction'
+      link: '/sass/introduction'
+    - label: 'Contents'
+      link: '/sass/contents'
+    - label: 'Further reading'
+      link: '/sass/further-reading'
+- label: Basic Javascript
+  items:
+    - label: 'Introduction'
+      link: '/basic-js/introduction'
+    - label: 'Contents'
+      link: '/basic-js/contents'
+    - label: 'Basic JS Section project'
+      link: '/basic-js/basic-js-section-project'
+    - label: 'Further reading'
+      link: '/basic-js/further-reading'
