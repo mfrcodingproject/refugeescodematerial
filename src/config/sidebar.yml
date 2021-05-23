@@ -56,3 +56,7 @@
       link: '/basic-js/basic-js-section-project'
     - label: 'Further reading'
       link: '/basic-js/further-reading'
+- label: Midcourse project
+  items:
+    - label: 'Introduction'
+      link: '/pokedex/assignment'
