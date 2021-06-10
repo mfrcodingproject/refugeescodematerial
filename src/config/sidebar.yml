@@ -60,3 +60,19 @@
   items:
     - label: 'Introduction'
       link: '/pokedex/assignment'
+- label: Advanced Javascript
+  items:
+    - label: 'Introduction'
+      link: '/advanced-js/introduction'
+    - label: 'Arrays in depth'
+      link: '/advanced-js/arrays'
+    - label: 'Further reading'
+      link: '/advanced-js/arrays-further-reading'
+    - label: 'Functions in depth'
+      link: '/advanced-js/functions'
+    - label: 'Further reading'
+      link: '/advanced-js/functions-further-reading'
+    - label: 'Objects in depth'
+      link: '/advanced-js/objects'
+    - label: 'API calls'
+      link: '/advanced-js/api-calls'

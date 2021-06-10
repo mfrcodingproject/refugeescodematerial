@@ -1,0 +1,387 @@
+# Arrays in depth
+
+So far we've covered how to **loop** over iterable elements in javascript, such as arrays (**Disclaimer**: objects are also iterable but let's leave that for another time).
+
+We should know by now how to use a `for` loop and call the `.forEach` function within an array without much struggle.
+
+These forms of iterating over arrays and manipulating them are ok in most cases, and you could easily do pretty much everything you need with those two types of loops, but there's another way with which you can save a lot of code while keeping your codebase clean and avoid mutating your arrays (more on this later).
+
+Javascript lets us do three basic operations with three different methods that we're going to teach you right now. These three functions have all one thing in common, and that is that they are Higher order functions. Don't worry if you don't understand that concept now, just remember that all three work exactly the same: They are **functions** that accept another function as their parameter (or callback function). Let's see them in action!
+
+📖 [Callback functions](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
+
+### Map
+
+According to the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) documentation, the map function
+
+> "creates a new array with the results of calling a provided function on every element in the calling array".
+
+This is pretty much what we were doing with our arrays, right? The main difference is that `map` already returns a new array (which you normally **store** somewhere, of course) with the result of **executing our callback function** once for each one of the elements of our array. So let's see it in action:
+
+```jsx
+const arr = [1, 2, 3, 4, 5, 6, 7];
+function multiplyBy2 (n) {
+	return n * 2;
+}
+
+const arrTimes2 = arr.map(multiplyBy2);
+
+console.log(arrTimes2); // [2, 4, 6, 8, 10, 12, 14]
+```
+
+Ok, so let's dive first into that code from above:
+
+1. First, we've **declared** an array with some numbers, from 1 to 7.
+2. Then, we've **declared a new function** that **receives** a number and multiplies it by 2, **[returning](https://jaketrent.com/post/javascript-arrow-function-return-rules/)** the result.
+3. We call the `map` function from our array, executing our previously declared function with the element provided by `map`, as many times as elements has the array.
+
+Note that the following code would do exactly the same:
+
+```jsx
+const arr = [1, 2, 3, 4, 5, 6, 7];
+const arrTimes2 = arr.map(function (n) {
+	return n * 2
+});
+console.log(arrTimes2); // [2, 4, 6, 8, 10, 12, 14]
+```
+
+Easy, right? Certainly it saves us a lot of code considering how we would have done it before:
+
+```jsx
+const arr = [1, 2, 3, 4, 5, 6, 7];
+const arrTimes2 = [];
+function multiplyBy2 (n) {
+	return n * 2
+};
+
+for (let i = 0; i < arr.length; i++) {
+    const result = multiplyBy2(arr[i]);
+    arrTimes2.push(result);
+}
+
+console.log(arrTimes2); // [2, 4, 6, 8, 10, 12, 14]
+```
+
+📖 [Javascript Map](https://www.freecodecamp.org/news/javascript-map-how-to-use-the-js-map-function-array-method/)
+
+📖 [A guide to the `.map()` method](https://careerkarma.com/blog/javascript-map/)
+
+### Filter
+
+As its own name tells us, filter is used to select certain elements of an array and choose them to be part of a new array, based on a certain condition. The filter function allows us to discard elements that we don't need in our newly created array. According to MDN:
+
+> The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+
+As `map` does, `filter` also returns a different array than the one we are working with, with the exception that it will contain only the elements that the returning expression of our callback function returns `true` for.
+
+Let's see it better with an example:
+
+```jsx
+// Let's return those words longer than 6 characters
+const words = ['Hello', 'Javascript', 'Web development', 'CSS', 'HTML'];
+
+const longWords = words.filter(word => {
+    return word.length > 6;
+});
+
+console.log(longWords); // ['Javascript', 'Web development']
+```
+
+As you can see, filter is pretty straighforward. You just need to return an expression that evaluates to `true` or `false`, and all the elements of the array that pass that test, will be in the new array. All those that don't pass it, will be automatically discarded.
+
+Again, this saves us from doing a lot of unnecessary extra steps as we needed to do before:
+
+```jsx
+// Let's return those words longer than 6 characters
+const words = ['Hello', 'Javascript', 'Web development', 'CSS', 'HTML'];
+const longWords = [];
+
+for (let i = 0; i < words.length; i++) {
+    if (words[i].length > 6) {
+        longWords.push(words[i]);
+    }
+}
+
+console.log(longWords); // ['Javascript', 'Web development']
+```
+
+📖 [Javascript filter: A step-by-step guide](https://careerkarma.com/blog/javascript-filter-reduce/)
+
+📖 [Javascript: How to filter an array](https://flaviocopes.com/how-to-filter-array-javascript/)
+
+### Reduce
+
+The `reduce` function works pretty much the same as the other two. It accepts a function as a parameter exactly the same way as `map` and `filter` do, with the exception that this callback function (called reducer), instead of receiving the current element of the array as first argument, takes the accumulated result (accumulator) of the previously executed iterations. Let's see how MDN defines this method and then we'll see it with some code:
+
+> The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+
+Another thing to notice is that instead of returning a new array, `reduce` always outputs a single value, the result of accumulating the returning value of each iteration. Let's see how it works:
+
+```jsx
+// Let's get the sum of all the values in the array
+const nums = [124, 22, 874, 173, 5739];
+
+const sumOfNums = nums.reduce((accum, num) => {
+    return accum + num;
+}, 0);
+
+console.log(sumOfNums); // 6932
+```
+
+As we said before, you can notice how on each iteration, we receive the previous result of adding the accumulator to the element of the array, resulting in the end with the output of the sum of all the elements in the array.
+
+There's a second thing to take into account with the reduce function, and that is that apart from the accumulated value and the reducer function, we can pass a third parameter, consisting of the initial value that our reducer function will accept as accumulator on the first iteration. Let's see it better with an example:
+
+```jsx
+// Let's get the multiplication of all the values in the array
+const nums = [124, 22, 874, 173, 5739];
+const multiplicationOfNums = nums.reduce((accum, num) => {
+    // On the first iteration, when num's value is 124
+    // accum's value will be 1
+    return accum * num;
+}, 1 /* what if this were a zero? */);
+console.log(multiplicationOfNums); // 2367217302384
+```
+
+This might seem confusing at first, but everything will be crystal clear once you start practicing with a few exercises! 💻
+
+📖 [The JavaScript Reduce Method Explained](https://www.digitalocean.com/community/tutorials/js-finally-understand-reduce)
+
+📖 [Javascript reduce method in 5 examples](https://thecodebarbarian.com/javascript-reduce-in-5-examples.html)
+
+📽 [JavaScript array reduce](https://www.youtube.com/watch?v=g1C40tDP0Bk&ab_channel=ProgrammingwithMosh)
+
+📖 [How to use reduce in Javascript](https://zellwk.com/blog/reduce/)
+
+📖 [A guide to the reduce method in Javascript](https://www.freecodecamp.org/news/reduce-f47a7da511a9/)
+
+## Exercises
+
+### Map Exercises
+
+1. Given the following array, create a second array with the result of getting the power of each number by itself.
+
+```jsx
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Write your code here!
+
+// Expected result
+// [1, 4, 27, 256, 3125, 46656, 823543, 16777216, 387420489, 10000000000]
+```
+
+2. Given the following array, create a second array that uses each one of the words to form the sentences seen below.
+
+```jsx
+const foodList = ['Pizza', 'Ramen', 'Paella', 'Chuletón'];
+
+// Write your code here!
+
+//Expected result:
+/* [
+    'Since I'm Italian, I love eating Pizza',
+    'Since I'm Japanese, I love eating Ramen',
+    'Since I'm from Valencia, I love eating Paella',
+    'Although I don't eat meat, Chuletón is certainly tasty'
+   ]
+*/
+```
+
+3. Given the following array, create a second array that forms sentences using the objects' properties:
+
+```jsx
+const mfrStaff = [
+  {
+    name: 'Andrea',
+    role: 'coordinator',
+    hobbies: ['sing', 'watch movies']
+  },
+  {
+    name: 'Xavi',
+    role: 'teacher',
+    hobbies: ['read', 'code']
+  },
+  {
+    name: 'Ricardo',
+    role: 'teacher',
+    hobbies: ['read', 'garden']
+  },
+  {
+    name: 'Teresa',
+    role: 'teacher',
+    hobbies: ['travel', 'watch series']
+  },
+  {
+    name: ' Miguel',
+    role: 'coordinator',
+    hobbies: ['travel', 'build robots']
+  }
+];
+
+// Write your code here!
+
+// Expected result
+/*
+  [
+    'Andrea is a coordinator and they like to sing and watch movies',
+    'Xavi is a teacher and they like to read and code',
+    'Ricardo is a teacher and they like to read and garden',
+    'Rafa is a teacher and they like to travel and watch series',
+    'Jordi is a teacher and they like to travel and build robots'
+  ]
+*/
+```
+
+### Filter exercises
+
+1. Given the following array, create a second array only with the even numbers
+
+```jsx
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Write your code here!
+
+// Expected result
+// [2, 4, 6, 8, 10]
+```
+
+2. Given the following array, create a second array that filters out all the food that has meat and outputs the sentence seen below
+
+```jsx
+// Tip: You can chain map and filter to first remove the elements you don't want in your new array and then giving them the desired shape
+
+const foodList = [
+  {
+    name: 'Tempeh',
+    isVeggie: true
+  },
+  {
+    name: 'Cheesbacon burguer',
+    isVeggie: false
+  },
+  {
+    name: 'Beyond meat burguer',
+    isVeggie: true
+  },
+  {
+    name: 'Chuletón',
+    isVeggie: false
+  }
+];
+
+// Write your code here!
+
+//Expected result:
+/* [
+    'Nothing like a good Tempeh for dinner!',
+    'Nothing like a good Beyond meat burguer for dinner!'
+   ]
+*/
+```
+
+3. Given the following array, create a second array that outputs only the name of the products that cost less than 300€.
+
+```jsx
+const inventory = [
+  {
+    name: 'Book',
+    price: 10
+  },
+  {
+    name: 'Burguer Menu',
+    price: 5
+  },
+  {
+    name: 'Bike',
+    price: 300
+  },
+  {
+    name: 'Programming course license',
+    price: 155
+  }
+];
+
+// Write your code here!
+
+// Expected result
+/*
+  [
+    'Book',
+		'Burguer Menu',
+    'Programming course license',
+  ]
+*/
+```
+
+### Reduce exercises
+
+1. Given the following array, get the multiplication of all the elements of it.
+
+```jsx
+const numbersList = [45, 5, 1, 23, 32];
+
+// Write your code here!
+
+// Expected output --> 165600
+```
+
+2. Given the following array, concatenate all the elements in the array using `.reduce()`.
+
+```jsx
+const sentenceElements = [
+  'My',
+  'name',
+  'is',
+  /* Place your name here */,
+  'and',
+  'I',
+  'love',
+  'javascript'
+];
+
+// Write your code here!
+
+// Expected result --> 'My name is John Doe and I love javascript'
+```
+
+3. Given the following array, get the total amount of those products that belong to the category of `code`
+
+```jsx
+const booksList = [
+  {
+    name: 'You don\'t know JS',
+    author: 'Kyle Sympson',
+    price: 15,
+    category: 'code'
+  },
+  {
+    name: 'The handmaids tale',
+    author: 'Margaret Atwood',
+    price: 18,
+    category: 'novel'
+  },
+  {
+    name: 'Game of Thrones',
+    author: 'George R. Martin',
+    price: 32,
+    category: 'Fantasy'
+  },
+  {
+    name: 'Eloquent Javascript',
+    author: 'Marijn Haverbeke',
+    price: 40,
+    category: 'code'
+  }
+];
+
+// Write your code here!
+
+// Expected result --> 55
+```
+
+### Exercises on FreeCodeCamp
+
+1. [Use the map Method to Extract Data from an Array](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/functional-programming/use-the-map-method-to-extract-data-from-an-array)
+2. [Seek and Destroy](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/seek-and-destroy)
+3. [Sum All Numbers in a Range](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/sum-all-numbers-in-a-range)
+4. [Use Higher-Order Functions map, filter, or reduce to Solve a Complex Problem](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/functional-programming/use-higher-order-functions-map-filter-or-reduce-to-solve-a-complex-problem)

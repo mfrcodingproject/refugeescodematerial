@@ -1,0 +1,80 @@
+# Functions in depth
+
+A good programming language is more that just a mean for instructing a computer to perform tasks. It also help us think about the processes, by providing a way to **combine simple ideas to form more complex ones**.
+
+Abstractions allow to write bigger pieces of code in terms of simpler elements. This is similar to a natural language, where we define new terms so we can refer to them later without giving all the details again. JavaScript has two means by which compound elements can be named and manipulated as units: **functions** and **objects**.
+
+Functions are descriptions of the rules for manipulating data. They create abstractions around procedures, that is, a series of steps that we want to make on some given elements to produce a result. They take arguments and return a value, in a way similar to functions in mathematics.
+
+In JavaScript, functions are first-class citizens, that is, they can be passed as arguments to other functions, and be returned from functions. Thus, in the same way than a variable can have a number or a string as a value, it can also have a function, and we can manipulate them in similar ways. This feature gives us a very powerful tool to write good, readable code.
+
+Read the following articles carefully. Although hard at first, it's important that you start grasping at this concepts, they are the key aspects of the Javascript language.
+
+### Syntax of a function
+
+📖 [Javascript - functions](https://www.tutorialspoint.com/javascript/javascript_functions.htm)
+
+📖 [Javascript functions - Understanding the basics](https://codeburst.io/javascript-functions-understanding-the-basics-207dbf42ed99)
+
+📖 [Learn all about functions](https://flaviocopes.com/javascript-functions)
+
+### Arrow functions
+
+📖 [6 ways to declare Javascript Functions](https://dmitripavlutin.com/6-ways-to-declare-javascript-functions/)
+
+📖 [ES6 Arrow functions: Fat and Concise Syntax in JS](https://www.sitepoint.com/es6-arrow-functions-new-fat-concise-syntax-javascript/)
+
+📖 [Javascript Arrow functions: How, Why, When (and WHEN NOT) to use them](https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html)
+
+📖 [How to use Javascript arrow functions & `this` keyword](https://www.section.io/engineering-education/how-to-use-javascript-arrow-functions-and-this-keyword/)
+
+### Scope
+
+📖 [A Simple explanation of Scope in Javascript](https://dmitripavlutin.com/javascript-scope/)
+
+📖 [Understanding Scope in Javascript](https://scotch.io/tutorials/understanding-scope-in-javascript)
+
+📖 [Javascript Scope and Closures](https://css-tricks.com/javascript-scope-closures/)
+
+📖 [Understanding Variables, Scope, and Hoisting in Javascript](https://www.digitalocean.com/community/tutorials/understanding-variables-scope-hoisting-in-javascript)
+
+### Closures
+
+Now that you've learnt what scope is in Javascript, let's dive deeper into one of the key concepts of Javascript. Hard at first, once you get to understand it, you'll realise they've been around all this time, you just needed to meet them 😄
+
+📖 [A simple guide to help you understand closures in Javascript](https://medium.com/@prashantramnyc/javascript-closures-simplified-d0d23fa06ba4)
+
+📖 [A simple explanation of Javascript closures](https://dmitripavlutin.com/simple-explanation-of-javascript-closures/)
+
+📖 [Closures in Javascript for beginners](https://www.codingame.com/playgrounds/6516/closures-in-javascript-for-beginners)
+
+📖 [Learn Javascript closures with code examples](https://www.freecodecamp.org/news/lets-learn-javascript-closures-66feb44f6a44/)
+
+### Recursive functions
+
+Functions can call themselves as part of their computation. For example, the following function computes the value of the factorial of a number (`n! = n * (n - 1) * (n - 2) * ... * 1`):
+
+```jsx
+function factorial(n) {
+    if (n === 0)
+        return 1;
+
+    return n * factorial(n - 1);
+}
+
+factorial(3); // returns 6
+```
+
+This function uses the fact that `factorial(n) = n * factorial(n - 1)`. It works because at some point we will reach the call to `factorial(0)`, which is 1, and from there the rest of the values can be computed.
+
+> Recursive calls can be very useful, especially when we have processes that traverse certain data structures such as trees.
+
+📖 [A quick intro to recursion in Javascript](https://www.freecodecamp.org/news/quick-intro-to-recursion/)
+
+## Exercises
+
+1. [Use Arrow Functions to Write Concise Anonymous Functions](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/use-arrow-functions-to-write-concise-anonymous-functions)
+2. [Write Arrow Functions with Parameters](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/write-arrow-functions-with-parameters)
+3. [Global Scope and Functions](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/global-scope-and-functions)
+4. [Local Scope and Functions](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/local-scope-and-functions)
+5. [Global vs. Local Scope in Functions](https://github.com/mfrcodingproject/teachers_led_material/blob/master/docs/en/freeCodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/global-vs.-local-scope-in-functions)

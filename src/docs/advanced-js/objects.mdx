@@ -1,0 +1,139 @@
+# Objects in depth
+
+In the same way that functions abstract processes, objects abstract data. Objects can contain many values, and they are written as `property: value` pairs.
+
+Let's see again how to define a simple object:
+
+```jsx
+const p = {
+    firstName: 'Ned',
+    lastName: 'Stark',
+    age: 40,
+    isActive: false
+};
+```
+
+> To access a property of an object we can use [p.name](http://p.name/) or p['firstName']. We can also loop over the properties with for (x in p) { ... }.
+
+We already saw objects in the course. Now we are going to see some more advanced material related to them.
+
+### The `this` keyword
+
+Objects can contain any kind of values, and in particular they can contain functions. The functions defined inside an object are normally called *object methods*.
+
+Let's try to create a method that returns the full name:
+
+```jsx
+const p = {
+    firstName: 'Ned',
+    lastName: 'Stark',
+    fullName: function() { return this.firstName + ' ' + this.lastName; },
+    age: 40,
+    isActive: true
+};
+```
+
+By using `this` we are able to make the function defined inside the object to refer to other properties of the object.
+
+📖 [Javascript: What is the meaning of this?](https://web.dev/javascript-this/)
+
+📖 [The JavaScript `this` Keyword + 5 Key Binding Rules Explained for JS Beginners](https://www.freecodecamp.org/news/javascript-this-keyword-binding-rules/)
+
+### Constructor
+
+If we are going to create many objects with a similar structure, we can define an object type. For example, suppose you want to create an object type for cars. You want this type of object to be called Car, and you want it to have properties for make, model, and year. To do this, you would write the following function:
+
+```jsx
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+```
+
+Notice the use of `this` to assign values to the object's properties based on the values passed to the function.
+
+Now you can create an object called mycar as follows:
+
+```jsx
+var mycar = new Car('Eagle', 'Talon TSi', 1993);
+```
+
+This statement creates `mycar` and assigns it the specified values for its properties. Then the value of `mycar.make` is the string `"Eagle"`, `mycar.year` is the integer 1993, and so on.
+
+You can create any number of Car objects by calls to new. For example,
+
+```jsx
+var kenscar = new Car('Nissan', '300ZX', 1992);
+var vpgscar = new Car('Mazda', 'Miata', 1990);
+```
+
+📖 [What is a constructor in JavaScript?](https://www.educative.io/edpresso/what-is-a-constructor-in-javascript)
+
+📖 [Understanding Javascript constructors](https://css-tricks.com/understanding-javascript-constructors/)
+
+📖 [The constructor pattern](https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s01.html)
+
+📖 [Inheritance in Javascript: Understanding the constructor Property](https://dmitripavlutin.com/understanding-constructor-property/)
+
+### Spread syntax
+
+We can use the so-called spread syntax (`...`) for various purposes.
+
+> You can find a detailed reference in [MDN-Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax), but we will mention briefly the different uses here.
+
+### Destructuring
+
+For function calls:
+
+```jsx
+myFunction(...iterableObj);
+```
+
+For array literals or strings:
+
+```jsx
+[...iterableObj, '4', 'five', 6];
+```
+
+For object literals:
+
+```jsx
+let objClone = { ...obj };
+```
+
+> More details in [MDN-Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
+
+### Assignment
+
+```jsx
+[a, b] = [10, 20];
+
+console.log(a);  // 10
+console.log(b);  // 20
+
+[a, b, ...rest] = [10, 20, 30, 40, 50];
+
+console.log(rest);  // [30, 40, 50]
+```
+
+📖 [JavaScript Spread Operator: A Guide](https://careerkarma.com/blog/javascript-spread-operator/)
+
+📖 [6 Use Case of Spread with Array in JavaScript](https://www.samanthaming.com/tidbits/92-6-use-cases-of-spread-with-array/)
+
+📖 [Spread operator vs Rest Operator (Parameters)](https://dev.to/sheraz/spread-operator-vs-rest-operator-parameters-13gc)
+
+## Exercises
+
+1. [Create a Basic JavaScript Object](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/object-oriented-programming/create-a-basic-javascript-object)
+2. [Use Dot Notation to Access the Properties of an Object](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/object-oriented-programming/use-dot-notation-to-access-the-properties-of-an-object)
+3. [Make Code More Reusable with the this Keyword](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/object-oriented-programming/make-code-more-reusable-with-the-this-keyword)
+4. [Define a Constructor Function](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/object-oriented-programming/define-a-constructor-function)
+5. [Use a Constructor to Create Objects](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/object-oriented-programming/use-a-constructor-to-create-objects)
+6. [Understand the Constructor Property](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/object-oriented-programming/understand-the-constructor-property)
+7. [Use Closure to Protect Properties Within an Object from Being Modified Externally](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/object-oriented-programming/use-closure-to-protect-properties-within-an-object-from-being-modified-externally)
+8. [Use the Rest Parameter with Function Parameters](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/use-the-rest-parameter-with-function-parameters)
+9. [Use the Spread Operator to Evaluate Arrays In-Place](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/use-the-spread-operator-to-evaluate-arrays-in-place)
+10. [Use Destructuring Assignment to Extract Values from Objects](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/use-destructuring-assignment-to-extract-values-from-objects)
+11. [Use Destructuring Assignment to Assign Variables from Objects](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/use-destructuring-assignment-to-assign-variables-from-objects)
+12. [Use Destructuring Assignment to Assign Variables from Arrays](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/es6/use-destructuring-assignment-to-assign-variables-from-arrays)
