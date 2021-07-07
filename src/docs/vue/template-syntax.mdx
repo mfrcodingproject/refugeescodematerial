@@ -1,0 +1,49 @@
+---
+title: 'Template syntax'
+description: Template syntax | Vue | RefugeesCode
+---
+
+## Introduction
+
+Vue.js uses a syntax similar to HTML that allows you to bind the data in the components to the DOM nodes in the template. All Vue.js templates are valid HTML that can be parsed by spec-compliant browsers and HTML parsers.
+
+Think of what we learned using DOM manipulation. We created the element, added the data, then appended to another element in the DOM. Using Vue.js this is as easy as using its templates
+
+## Goals
+
+- [ ]  Learn how does a Vue template works
+- [ ]  Relate this to our previous JS knowledge
+
+## Basic tools
+
+In this chapter, we are going to learn how to insert data in Vue templates. It might be useful to review the section about interpolating data of the previous chapter.
+
+## Contents
+
+### Interpolate data
+
+In this section, you will learn how to interpolate the data in the Vue component to the HTML template
+
+- To interpolate any data as text: [https://v3.vuejs.org/guide/template-syntax.html#text](https://v3.vuejs.org/guide/template-syntax.html#text)
+- To interpolate data into an element attributes [https://v3.vuejs.org/guide/template-syntax.html#attributes](https://v3.vuejs.org/guide/template-syntax.html#attributes)
+
+### Directives
+
+You have probably noticed that we used an attribute prefixed with `v-` to interpolate attributes.  This is a common thing in Vue for other functionalities. For example, we use v-if to decide if something is inserted into the HTML. See the example:
+
+```jsx
+<p v-if="seen">Now you see me</p>
+```
+
+If the component data `seen` is `true`, then this `<p>` HTML element will be inserted in our HTML.
+
+These directives can be more powerful when combined:
+
+- Directives can take **arguments** to be more precise: [https://v3.vuejs.org/guide/template-syntax.html#arguments](https://v3.vuejs.org/guide/template-syntax.html#arguments)
+- Directives can take **modifiers** to define its behavior [https://v3.vuejs.org/guide/template-syntax.html#modifiers](https://v3.vuejs.org/guide/template-syntax.html#modifiers)
+
+## Further Reading
+
+- A simpler way to write directives is using shorthand: [https://v3.vuejs.org/guide/template-syntax.html#shorthands](https://v3.vuejs.org/guide/template-syntax.html#shorthands)
+- By default, Vue interpolates data as text. Learn how to interpolate HTML in templates: [https://v3.vuejs.org/guide/template-syntax.html#raw-html](https://v3.vuejs.org/guide/template-syntax.html#raw-html)
+- Learn how to interpolate Javascript expressions in HTML templates: [https://v3.vuejs.org/guide/template-syntax.html#using-javascript-expressions](https://v3.vuejs.org/guide/template-syntax.html#using-javascript-expressions)

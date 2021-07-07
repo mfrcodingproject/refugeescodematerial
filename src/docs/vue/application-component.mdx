@@ -1,0 +1,62 @@
+---
+title: 'Application component'
+description: Application component | Vue | RefugeesCode
+---
+
+## Introduction
+
+So now you already have a basic understanding on how VueJS works. Now, let's dive deeper into this framework. From now on, every chapter of this lesson will focus one of its parts, so you can learn from the basics to the more advanced concepts. 
+
+In this chapter, we will focus on how does Vue works at its basic level: the app and the instances object. Do you remember objects, right? Otherwise, you better go back and read how a JavaScript object works. We will also learn how does Vue call its functions, or set its variables.
+
+## Goals
+
+- [ ]  Learn how does a Vue app works
+- [ ]  Learn how does Vue loads its code into the HTML
+- [ ]  Understand the Vue instance lifecycle
+
+## Basic tools
+
+Since we will be learning about JavaScript objects, it may be useful to go back to the advanced JS lesson and review what we learned about [Objects in Depth](https://www.notion.so/ADVANCED-JS-FINAL-4835550ad5aa4d2f9fb42fee7b24ba44)
+
+## Contents
+
+### Creating the Vue app
+
+Every Vue application starts by creating a new application instance with the *createApp* function
+
+```jsx
+const app = Vue.createApp({
+  /* options */
+})
+```
+
+### The root component
+
+To append the new application to the DOM we need to create a new component and tell Vue in which HTML node should it be inserted.  
+
+This component is the root component: [https://v3.vuejs.org/guide/instance.html#the-root-component](https://v3.vuejs.org/guide/instance.html#the-root-component)
+
+In case you forgot, we introduced [components](https://www.notion.so/Introduction-a5525026696848e185cd065e6339ec55) in the previous chapter.
+
+### Component properties
+
+A Vue component has multiple properties, some of them are created to set variables, others are for methods, injected properties, etc. We will see this thoroughly in the coming chapters, but this introduction might be useful [https://v3.vuejs.org/guide/instance.html#component-instance-properties](https://v3.vuejs.org/guide/instance.html#component-instance-properties)
+
+### Lifecycle hooks
+
+Each component instance goes through a series of initialization steps when it's created - for example, it needs to compile the HTML, append the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called lifecycle hooks, giving users the opportunity to add their own code at specific stages. 
+
+Read more about lifecycle hooks [https://v3.vuejs.org/guide/instance.html#lifecycle-hooks](https://v3.vuejs.org/guide/instance.html#lifecycle-hooks)
+
+### Lifecycle diagram
+
+This image might be one of the most important images of VueJS. Don't worry if you do not understand it right now, just try to follow it. These are the methods in a Vue component that are executed. Follow the diagram and keep in mind that you'll probably come back often.
+
+![Lifecycle diagram](./lifecycle.png)
+
+## Further Reading
+
+Artículos sobre
+
+- SPA, root component and mounting.
