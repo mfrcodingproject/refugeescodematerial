@@ -1,0 +1,47 @@
+---
+title: 'Conditionals'
+description: Conditionals | Vue | RefugeesCode
+---
+
+## Introduction
+
+Sometimes we want to show or hide content base on certain conditions. Imagine when a user clicks a button, a new menu appears or if the API returns that the user is not an admin we might want to hide a special menu.
+
+In a web application this happens very often and depending on the data, and how this data changes (we will see Vue events later) we can decide which parts of the HTML are being displayed.
+
+## Goals
+
+- [ ]  Review our previous JS knowledge about conditionals
+- [ ]  Learn how to display data based on conditions
+- [ ]  Learn the difference between rendering and hiding
+
+## Basic tools
+
+In JavaScript we have already learned conditionals. If you remember how conditionals work, this part will be much easier since it is basically the same, but applied to templates. Go back and check again the Conditionals lessons in basic JS section before going further in this section.
+
+## Contents
+
+Conditional rendering is the ability to control whether template code is rendered. 
+
+### Conditional (v-if)
+
+Using this condition in your template, you will decide if some parts of your HTML are rendered in your template. When we say rendered, we mean removed.
+
+- 🗒️ v-if: [https://v3.vuejs.org/guide/conditional.html#v-if](https://v3.vuejs.org/guide/conditional.html#v-if)
+- 🗒️ v-else: [https://v3.vuejs.org/guide/conditional.html#v-else](https://v3.vuejs.org/guide/conditional.html#v-else)
+
+### Display (v-show)
+
+Using v-show we will also decide which parts of our HTML will not be displayed to the user, but in this case, the HTML will be rendered. Using this condition will hide the HTML only visually.
+
+- 🗒️ v-show: [https://v3.vuejs.org/guide/conditional.html#v-show](https://v3.vuejs.org/guide/conditional.html#v-show)
+
+### When to use each
+
+The key difference is that v-if **conditionally renders** elements and v-show **conditionally displays** elements.
+
+- Read this article from the section `What’s the Difference Between v-if and v-show?`: [https://learnvue.co/2021/05/v-if-vs-v-show-vue-conditional-rendering/](https://learnvue.co/2021/05/v-if-vs-v-show-vue-conditional-rendering/)
+
+## Further Reading
+
+- Conditional Groups with v-if on <template>: [https://v3.vuejs.org/guide/conditional.html#conditional-groups-with-v-if-on-template](https://v3.vuejs.org/guide/conditional.html#conditional-groups-with-v-if-on-template)
