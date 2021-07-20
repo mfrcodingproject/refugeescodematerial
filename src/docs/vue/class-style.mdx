@@ -1,0 +1,41 @@
+---
+title: 'Class and Style bindings'
+description: Class and Style bindings | Vue | RefugeesCode
+---
+
+## Introduction
+
+An often overlooked feature in web development and specially in JavaScript frameworks are styles. CSS and its relation with HTML and JS is a very important part of our applications. It is very important to learn how to control how to link data and template to styles. 
+
+## Goals
+
+- [ ]  Bind data to HTML class attributes
+- [ ]  How to style child components from parent components
+- [ ]  Bind data to HTML styles attributes
+
+## Basic tools
+
+It might be awhile since you worked with CSS for the last time. Remember? If you don't, it could be a good time to review the difference between class and style attributes in HTML. Go back and check again the initial lessons CSS sections before going further in this section.
+
+## Contents
+
+### Binding HTML Classes
+
+Read this article about HTML class binding
+
+- 🗒️ This very basic introduction: [https://codesource.io/class-binding-in-vue-with-vue-v-bind/](https://codesource.io/class-binding-in-vue-with-vue-v-bind/)
+- 🗒️ An in depth explanation of the Object syntax: [https://v3.vuejs.org/guide/class-and-style.html#object-syntax](https://v3.vuejs.org/guide/class-and-style.html#object-syntax)
+
+### Binding inline styles
+
+Binding inline styles is quite similar to binding class styles in Vue:
+
+- 🗒️ Style binding, object syntax: [https://v3.vuejs.org/guide/class-and-style.html#object-syntax-2](https://v3.vuejs.org/guide/class-and-style.html#object-syntax-2)
+
+### Auto-prefixing
+
+When you use a CSS property that requires a vendor prefix in :style, Vue will automatically add the appropriate prefix. Vue does this by checking which style properties are supported in the current browser. If the browser doesn't support a particular property, then various prefixed variants will be tested to try to find one that is supported.
+
+## Further Reading
+
+- If you already have a basic knowledge of parent-child components, it would be useful to read this introduction to component class binding. This feature in Vue is not intuitive, but very useful: https://v3.vuejs.org/guide/class-and-style.html#with-components
