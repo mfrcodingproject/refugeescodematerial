@@ -1,0 +1,39 @@
+---
+title: 'Loops'
+description: Loops | Vue | RefugeesCode
+---
+
+## Introduction
+
+Sometimes, we need to be able to render multiple items from a list. To do that, in javascript we have some tools to iterate over arrays or objects. Vue has a special directive, v-for. This is a built-in Vue directive that lets us include a loop inside of our template, repeating the rendering of a template feature for each item in an array. We'll use this to iterate through an array of items and display them in our app.
+
+## Goals
+
+- [ ]  Review our previous JS knowledge about conditionals
+- [ ]  Learn how to display data based on conditions
+- [ ]  Learn the difference between rendering and hiding
+
+## Basic tools
+
+In JavaScript we have already learned how loops work. If you remember how to iterate over arrays, this part will be much easier since it is basically the same, but applied to templates. Go back and check again the Arrays lessons in basic JS and advanced JS section before going further in this section.
+
+## Contents
+
+### Mapping an Array to Elements with v-for
+
+We can use the `v-for` directive to render a list of items based on an array. 
+
+- 🗒️ `v-for` in arrays: [https://v3.vuejs.org/guide/list.html#mapping-an-array-to-elements-with-v-for](https://v3.vuejs.org/guide/list.html#mapping-an-array-to-elements-with-v-for)
+
+
+### :key in loops
+
+It is recommended to provide a key attribute with v-for whenever possible. 
+
+- Read this article to understand why is so important and how it works: [How & Why to use the `:key` attribute in VueJS v-for loops ](https://v3.vuejs.org/guide/list.html#v-for-with-an-object)
+
+> Note that it's not recommended to use `v-if` and `v-for` together. Refer to [style guide](https://v3.vuejs.org/style-guide/#avoid-v-if-with-v-for-essential) for details.
+
+## Further Reading
+
+- v-for with a Component: [https://v3.vuejs.org/guide/list.html#v-for-with-a-component](https://v3.vuejs.org/guide/list.html#v-for-with-a-component)
