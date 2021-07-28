@@ -21,24 +21,37 @@ Understanding the concept of component is not easy, but is a common feature in e
 ## Contents
 
 ### Basic component
-- Work In Progress: https://v3.vuejs.org/guide/component-basics.html#base-example
 
-### Reusing components
-- Work In Progress: https://v3.vuejs.org/guide/component-basics.html#reusing-components
+Before diving in components, you should know that all examples of Vue apps that we have seen so far have been examples of components. So, to be honest, you already know how a component is. 
+  - 🗒️ Read this section to review a basic component: https://v3.vuejs.org/guide/component-basics.html#base-example
+  - 📽️ Watch this laracast video about components: https://laracasts.com/series/learn-vue-2-step-by-step/episodes/7 
 
-### Dividing an app in components
-- Work In Progress: https://v3.vuejs.org/guide/component-basics.html#organizing-components
+The great advantage of components is that you can reuse them as many times as you want and each time you will have a new instance of the component.
+  - 🗒️ Check this example on how to reuse a component: https://v3.vuejs.org/guide/component-basics.html#reusing-components
 
-### Parent and child components
-- Work In Progress: https://v3.vuejs.org/guide/component-basics.html#passing-data-to-child-components-with-props
+For example, you might have components for a header, sidebar, and content area, each typically containing other components for navigation links, blog posts, etc.
+  - 📽️ Watch this laracast video on how to create, reuse and nest components: https://laracasts.com/series/learn-vue-2-step-by-step/episodes/8
 
-### Passing data from parent to child through props
-- Work In Progress: https://v3.vuejs.org/guide/component-basics.html#passing-data-to-child-components-with-props
+Play for a few minutes with this app, create, edit and delete some TODOS (https://todomvc.com/examples/vue/) 
+  - Which components would you create?
+  - Which components would you reuse?
+
+### Communicating components
+
+So far we learned how to reuse components, but that won't be very useful if every component has the same look and data. For components to be completely reusable they must be also configurable, receive and pass data.
+
+### Passing data from parent to child components through events
+
+- 🗒️ Read how to pass data from parent components to child components: https://v3.vuejs.org/guide/component-basics.html#passing-data-to-child-components-with-props
+- 📽️ Watch this laracast exercise on how to create a reusable component and pass some data: https://laracasts.com/series/learn-vue-2-step-by-step/episodes/9
 
 ### Passing data from child to parent through events
-- Work In Progress: https://v3.vuejs.org/guide/component-basics.html#listening-to-child-components-events
+
+To pass data from childs to parents we need to use a slightly more complicated system: events. Do you remember events?
+In Vue, to pass data from child to parents we need to create a new event that parents will listen and use
+
+- Read the documentation on how to pass data from child components to parent components https://v3.vuejs.org/guide/component-basics.html#listening-to-child-components-events
 
 ## Further reading
 - Components across frameworks: https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Main_features#writing_components
 - Introduction to web components: https://developer.mozilla.org/en-US/docs/Web/Web_Components
-
