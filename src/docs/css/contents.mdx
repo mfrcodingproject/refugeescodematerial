@@ -27,7 +27,10 @@ Let's read it:
 2. The first one will look for all `h1` tags and will apply the properties between the brackets to those tags.
     1. The first one sets the text color to blue.
     2. The second sets the background color to yellow.
-    3. The third one puts a border around the header that is 1 pixel wide, solid (not dotted, or dashed, etc.), and colored black.
+    3. The third one puts a border around the header that is 1 pixel wide, solid (not dotted, or dashed, etc.), and colored black. **Important notice:** in this example and over the course we will use **shorthands**, which is shorten code to specify all the individual properties in one property. The `border` property is a shorthand property for the following individual border properties:
+        - `border-width`
+        - `border-style` (required)
+        - `border-color`
 3. The second selector (`p`) will change the text to red.
 
 Read this article to learn how CSS syntax works and see examples.
@@ -42,7 +45,8 @@ Every selector of CSS is composed of a selector and its attributes. There are mu
 
 This is how a CSS selector looks like:
 
-![.CSS syntax explanation](./css-syntax.png)
+![.CSS syntax explanation](../../../static/css-syntax.png)
+![.CSS declaration](../../../static/css-declaration.png)
 
 **Important**: If a property is unknown or if a value is not valid for a given property, the declaration is deemed invalid and is wholly ignored by the browser's CSS engine.
 
@@ -151,9 +155,9 @@ Every HTML element is represented as a rectangular box, with the box's content, 
 
 ### CSS Box model
 
-![Box model](./box-model.png)
+![Box model](../../../static/box-model.png)
 
-![Spacing](./spacing.png)
+![Spacing](../../../static/spacing.png)
 
 This representation of elements as boxes allows us to effectively distribute content within our webpage. There are different approaches to do so, but before we get to that part, make sure you understand how this works:
 
@@ -314,7 +318,7 @@ Please read these articles to know the basic concepts of responsive designs.
 
 [The building blocks of responsive design](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/responsive_design_building_blocks)
 
-### Using **Developer Tools Responsive Design Mode**
+### Using Developer Tools Responsive Design Mode
 
 Responsive Design Mode is a tool from your browser developer tools that gives you a simple way to simulate a range of layouts of different devices — particularly mobile phones and tablets as well as desktops and laptops.
 
