@@ -104,11 +104,11 @@ Variables in SCSS can hold every value we want, such as colors, fonts, sizes and
 
 Although SASS variables are really handy and one of the main features of CSS preprocessors, they are less powerful than Custom Properties, since the latter let you modify their value via Javascript, which can be extremely valuable when creating all sorts of visual effects in your app.
 
-Use custom properties instead of Sass variables if the browser supports it.
+:warning: **Use custom properties instead of Sass variables if the browser supports it.**
 
 📖 [More in depth information about Sass variables](https://sass-lang.com/documentation/variables)
 
-### E**xercises**
+### Exercises
 
 1. [Learn to store data via SASS variables](https://www.freecodecamp.org/learn/front-end-libraries/sass/store-data-with-sass-variables)
 
@@ -116,7 +116,7 @@ Use custom properties instead of Sass variables if the browser supports it.
 
 When writing HTML you've probably noticed that it has a clear nested and visual hierarchy. CSS, on the other hand, doesn't.
 
-Nesting selectors will help to keep your styles **clean** and **tidy**, following the same visual hierarchy of your HTML**.** To use nesting you only need to define something like this:
+Nesting selectors will help to keep your styles **clean** and **tidy**, following the same visual hierarchy of your HTML. To use nesting you only need to define something like this:
 
 ```scss
 .my-header {
@@ -142,7 +142,7 @@ Which will be converted to:
 }
 ```
 
-Sometimes, you may need to refer to the parent selector when nesting different styles, like when you need to add some selector like :**hover** to update the styles. To do that, you can use the `&` ****character:
+Sometimes, you may need to refer to the parent selector when nesting different styles, like when you need to add some selector like :**hover** to update the styles. To do that, you can use the `&` character:
 
 ```scss
 .my-button {
@@ -161,7 +161,7 @@ With that selector the color of `.my-button` will change when the user hovers it
 
 📖 [The Sass ampersand](https://css-tricks.com/the-sass-ampersand/)
 
-### E**xercises**
+### Exercises
 
 1. [Nest CSS with SASS](https://www.freecodecamp.org/learn/front-end-libraries/sass/nest-css-with-sass)
 
@@ -290,7 +290,7 @@ And remember, in CSS the order of the CSS is important. If two rules
 have the same name, rules will be merged and the last one will overwrite
 the previous one. Be careful with your project naming.
 
-By the time of this writing, the use of `@import` is being deprecated in favour of `@use` . For now you don't need to worry about this. We think it's important that you know first this basic feature to know the differences between one and another and then find out about what `@use` has to offer to start using it. For now, you can safely use both of them interchangeably. Read the following articles to know more!
+:warning: By the time of this writing, the use of `@import` is being deprecated in favour of `@use` . For now you don't need to worry about this. We think it's important that you know first this basic feature to know the differences between one and another and then find out about what `@use` has to offer to start using it. For now, you can safely use both of them interchangeably. Read the following articles to know more!
 
 📖 [Sass Partials](https://riptutorial.com/sass/example/14566/partials)
 
@@ -357,7 +357,7 @@ A mixin might not receive any arguments:
 
 📖 [Sass Mixins](https://marksheet.io/sass-mixins.html)
 
-### **Exercises**
+### Exercises
 
 1. [Create reusable CSS with mixins](https://www.freecodecamp.org/learn/front-end-libraries/sass/create-reusable-css-with-mixins)
 
