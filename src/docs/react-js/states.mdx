@@ -1,0 +1,209 @@
+---
+title: 'State in React'
+description: State | useState | React | RefugeesCode
+---
+
+## Introduction to React Hooks
+
+### What are React Hooks?
+
+React Hooks have a very simple API, but given its massive community and variety of use cases, questions are bound to arise around React Hooks best practices and how to solve common problems. Hooks let you use different React features from your components. You can either use the built-in Hooks or combine them to build your own.
+
+📄 Read about [React Hooks cheat sheet: Best practices and examples](https://blog.logrocket.com/react-hooks-cheat-sheet-solutions-common-problems/#usestate)
+
+### State Hooks
+
+State lets a component “remember” information like user input. For example, a form component can use state to store the input value, while an image gallery component can use state to store the selected image index. 
+
+📄 Read more about [State](https://react.dev/learn/state-a-components-memory) in the official page of React.dev
+
+To add state to a component, use one of these Hooks:
+
+- `useState` declares a state variable that you can update directly. **Note:** This the one we will see in deep in this section.
+- `useReducer` declares a state variable with the update logic inside a reducer function.
+
+
+```jsx
+function ImageGallery() {
+  const [index, setIndex] = useState(0);
+  // ...
+}
+```
+
+## Goals
+
+- [ ] Add a state variable to your component
+- [ ] Track state in a function component
+- [ ] Manage simple local states within a component
+
+## Basic tools
+
+In this course we already learned about class and functional components in [section 1 - React.js] (Missing url). Functional components are functions that accept arguments as the properties of the component and return valid JSX, as shown below:
+
+```jsx
+function Message(props) {
+  return <div>{props.message}</div>
+}
+// Or as an arrow function
+const Message = (props) =>  <div>{props.message}</div>
+```
+As you can see, there are no state or lifecycle methods. However, as of React v16.8, we can use Hooks. [React Hooks](https://blog.logrocket.com/react-reference-guide-hooks-api/) are functions that add state variables to functional components and instrument the lifecycle methods of classes. They tend to start with **use** .
+
+## Contents
+
+### UseState
+
+As seen in the introduction section, the React `useState` Hook allows you to have state variables in functional components. You pass the initial state to this function, and it returns a variable with the current state value (not necessarily the initial state) and another function to update this value. 
+
+🎥 More info in this [video](https://www.youtube.com/watch?time_continue=1&v=4qVNaohzDWU&embeds_referring_euri=https%3A%2F%2Fblog.logrocket.com%2F&source_ve_path=Mjg2NjY&feature=emb_logo)
+
+`useState` is React Hook that allows you to add state to a functional component(link to our material). It returns an array with two values: the current state and a function to update it. The Hook takes an initial state value as an argument and returns an updated state value whenever the setter function is called. It can be used like this:
+
+```jsx
+const [state, setState] = useState(initialValue);
+```
+
+Here, the `initialValue` is the value you want to start with, and `state` is the current state value that can be used in your component. The `setState` function can be used to update the `state`, triggering a re-render of your component.
+
+### What can `useState` hold?
+
+In React, `useState` can store any type of value, whereas the state in a class component is limited to being an object. This includes primitive data types like `string`, `number`, and `Boolean`, as well as complex data types such as `array`, `object`, and `function`. It can even cover custom data types like class instances.
+
+Basically, anything that can be stored in a JavaScript variable can be stored in a state managed by `useState`.
+
+### Updating objects and arrays in `useState`
+
+Never directly modify an object or array stored in useState. Instead, you should create a new updated version of the object or array and call setState with the new version. 
+
+```jsx
+// Objects
+const [state, setState] = useState({ name: 'John', age: 30 });
+
+const updateName = () => {
+  setState({ ...state, name: 'Jane' });
+};
+
+const updateAge = () => {
+  setState({ ...state, age: state.age + 1 });
+};
+
+// Arrays
+const [array, setArray] = useState([1, 2, 3, 4, 5]);
+
+const addItem = () => {
+  setArray([...array, 6]);
+};
+
+const removeItem = () => {
+  setArray(array.slice(0, array.length - 1));
+};
+```
+
+Live example: [add new elements to a list](https://codesandbox.io/p/sandbox/exercise-usestate-hook-1jvy0?file=%2Fsrc%2Findex.js)
+
+
+### What does the `React.useState` do?
+
+Calling `React.useState` inside a function component generates a single piece of state associated with that component.
+
+Whereas the state in a class is always an object, with Hooks, the state can be any type. Each piece of state holds a single value: an `object`, an `array`, a `Boolean`, or any other type you can imagine.
+
+### Declaring state, update state, state variable
+
+Refer to these tutorials for a detailed understanding of these 3 concepts:
+
+- 📄 [Declaring state in React](https://blog.logrocket.com/guide-usestate-react/#declaring-state-react)
+- 📄 [Using React Hooks to update the state](https://blog.logrocket.com/guide-usestate-react/#using-react-hooks-update-state)
+- 📄 [Implementing an object as a state variable with useState Hook](https://blog.logrocket.com/guide-usestate-react/#implementing-object-state-variable-usestate-hook)
+
+#### Exercises* 👩‍💻🧑‍💻:
+
+1- Simple Counter: Create a basic counter using the useState hook. Implement buttons to increment and decrement the counter value.
+2- User Input Form: Build a form with useState to capture and display user input. For example, capture the user's name and display a greeting.
+3- Toggle Button: Develop a toggle button that changes its state with the useState hook when clicked. It should change between "On" and "Off" states.
+4- Color Picker: Create a color picker using useState to change the background color of a div based on the user's color selection.
+5- To-Do List: Build a simple to-do list using the useState hook to add and remove items.
+
+*Taken from [Mastering React’s useState Hook: 20 Practical Practice Questions](https://drop-x-out.medium.com/mastering-reacts-usestate-hook-20-practical-practice-questions-e3fb3488a8a1)
+
+#### Additional material on these subjects:
+
+- 📄 [How to update state in a nested object in React with Hooks](https://blog.logrocket.com/guide-usestate-react/#update-state-nested-object)
+- 📄 [Working with multiple state variables or one state object](https://blog.logrocket.com/guide-usestate-react/#multiple-variables-one-state)
+
+### Rules for using `useState`
+
+`useState` abides by the same [rules that all Hooks follow](https://legacy.reactjs.org/docs/state-and-lifecycle.html):
+
+- Only call Hooks at the top level
+- Only call Hooks from React functions
+
+The second rule is easy to follow. Don’t use `useState` in a class component:
+
+```jsx
+class App extends React.Component {
+  render() {
+    const [message, setMessage] = useState( '' );
+
+    return (
+      <p>
+        <strong>{message}</strong>
+      </p>
+    );
+  }
+}
+```
+
+Or regular JavaScript functions (not called inside a functional component):
+
+```jsx
+function getState() {
+  const messageState = useState( '' );
+  return messageState;
+}
+const [message, setMessage] = getState();
+const Message = () => {
+ /* ... */
+}
+```
+
+You’ll get an [error](https://legacy.reactjs.org/warnings/invalid-hook-call-warning.html). The first rule means that even inside functional components, you shouldn’t call useState in loops, conditions, or nested functions because React relies on the order in which useState functions are called to get the correct value for a particular state variable.
+
+In that regard, the most common mistake is to wrap useState calls in a [conditional statement](https://blog.logrocket.com/react-conditional-rendering-9-methods/) (they won’t be executed all the time):
+
+```jsx
+if (condition) { // Sometimes it will be executed, making the order of the useState calls change
+  const [message, setMessage] = useState( '' );
+  setMessage( aMessage );  
+}
+const [list, setList] = useState( [] );
+setList( [1, 2, 3] );
+```
+
+A functional component can have many calls to `useState` or other Hooks. Each Hook is stored in a list, and there’s a variable that keeps track of the currently executed Hook.
+
+When `useState` is executed, the state of the current Hook is read (or initialized during the first render), and then, the variable is changed to point to the next Hook. That’s why it is important to always maintain the Hook calls in the same order. Otherwise, a value belonging to another state variable could be returned.
+
+In general terms, here’s an example of how this works step by step:
+
+1. React initializes the list of Hooks and the variable that keeps track of the current Hook
+2. React calls your component for the first time
+3. React finds a call to useState, creates a new Hook object (with the initial state), changes the current Hook variable to point to this object, adds the object to the Hooks list, and returns the array with the initial state and the function to update it
+4. React finds another call to useState and repeats the actions of the previous step, storing a new Hook object and changing the current Hook variable
+5. The component state changes
+6. React sends the state update operation (performed by the function returned by useState) to a queue to be processed
+7. React determines it needs to re-render the component
+8. React resets the current Hook variable and calls your component
+9. React finds a call to useState, but this time, since there’s already a Hook at the first position of the list of Hooks, it just changes the current Hook variable and returns the array with the current state, and the function to update it
+10. React finds another call to useState and because a Hook exists in the second position, once again, it just changes the current Hook variable and returns the array with the current state and the function to update it
+
+## Further Reading
+
+- 📄 Official React documentation: [useState](https://react.dev/reference/react/useState)
+- 📄 [useState() vs setState() - Strings, Objects, and Arrays](https://dev.to/johnstonlogan/react-hooks-barney-style-1hk7)
+- 📄 **Advanced material** - includes concepts of future sections. [A guide to choosing the right React state management solution](https://blog.logrocket.com/guide-choosing-right-react-state-management-solution/)
+- 👩‍💻🧑‍💻 Exercises: [Practice React's useState hook with 8 Interactive Exercises](https://www.clientside.dev/blog/react-use-state-practice-exercises)
+
+## Notes
+
+Most of the documentation provided in this section comes from this tutorial - [useState in React: A complete guide](https://blog.logrocket.com/guide-usestate-react)
