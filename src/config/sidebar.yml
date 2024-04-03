@@ -100,3 +100,9 @@
       link: '/vue/forms'
     # - label: 'Components'
     #   link: '/vue/components'
+- label: ReactJS
+  items:
+    - label: 'States'
+      link: '/react-js/states'
+    - label: 'Events & forms'
+      link: '/react-js/events-forms'
