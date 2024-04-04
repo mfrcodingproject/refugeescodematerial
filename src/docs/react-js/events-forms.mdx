@@ -1,0 +1,198 @@
+---
+title: 'Handling Events and Forms'
+description: events | forms | React | RefugeesCode
+---
+
+
+## Introduction
+
+Some things on the screen update in response to user input. For example, clicking an image gallery switches the active image. In React, data that changes over time is called state (remember about this in our previous section 🤓). You can add state to any component, and update it as needed. In this section, you’ll learn how to write components that handle interactions.
+
+## Goals
+
+- [ ] Different ways to write an event handler
+- [ ] How to pass event handling logic from a parent component
+- [ ] Use `<form>` elements
+- [ ] Displaying different content based on certain conditions
+
+## Basic tools
+
+In regular HTML, when we work with an input element, the page’s DOM maintains that element’s value in its DOM node. It’s possible to access the value via methods like: `document.getElementById(‘email’).value`. The DOM is our storage.
+
+In React, when working with forms or any other user input fields such as standalone text fields or buttons, developers have an interesting problem to solve. From React’s documentation: “_React components must represent the state of the view at any point in time and not only at initialization time._” React is all about keeping things simple by using declarative style to describe UIs. React describes the UI, its end stage, and how it should look.
+
+Can you spot a conflict? In the traditional HTML form elements, the state of the elements will change with the user input. React uses a declarative approach to describe the UI. The input needs to be dynamic to reflect the state properly.
+
+If developers opt NOT to maintain the component state (in JavaScript), nor sync it with the view, then it creates problems — there might be a situation when internal state and view are different and React won’t know about changed state. This can lead to all sorts of trouble, and mitigates the simple philosophy of React. The best practice is to keep React’s `render()` as close to the real DOM as possible, and that includes the data in the form elements.
+
+## Contents
+
+### Event handling in React
+
+React lets you add event handlers to your JSX. Event handlers are your own functions that will be triggered in response to user interactions like clicking, hovering, focusing on form inputs, and so on.
+
+Built-in components like `<button>` only support built-in browser events like `onClick`. However, you can also create your own components, and give their event handler props any application-specific names that you like.
+
+```jsx
+export default function App() {
+  return (
+    <Toolbar
+      onPlayMovie={() => alert('Playing!')}
+      onUploadImage={() => alert('Uploading!')}
+    />
+  );
+}
+
+function Toolbar({ onPlayMovie, onUploadImage }) {
+  return (
+    <div>
+      <Button onClick={onPlayMovie}>
+        Play Movie
+      </Button>
+      <Button onClick={onUploadImage}>
+        Upload Image
+      </Button>
+    </div>
+  );
+}
+
+function Button({ onClick, children }) {
+  return (
+    <button onClick={onClick}>
+      {children}
+    </button>
+  );
+}
+```
+
+📄 Read the official documentation with practical examples - [Responding to Events](https://react.dev/learn/responding-to-events)
+
+**Recap**
+
+- You can handle events by passing a function as a prop to an element like `<button>`.
+- Event handlers must be passed, *not called!* `onClick={handleClick}`, not `onClick={handleClick()}` .
+- You can define an event handler function separately or inline.
+- Event handlers are defined inside a component, so they can access props.
+- You can declare an event handler in a parent and pass it as a prop to a child.
+- You can define your own event handler props with application-specific names. 
+- Events propagate upwards. Call `e.stopPropagation()` on the first argument to prevent that.
+- Events may have unwanted default browser behavior. Call `e.preventDefault()` to prevent that.
+- Explicitly calling an event handler prop from a child handler is a good alternative to propagation.
+
+#### Exercise: Handling Events* 👩‍💻🧑‍💻
+
+**Objective**:
+
+Learn how to handle events in React JS by building an interactive form.
+
+**Steps**:
+
+1. Create a new file named Form.js in the src directory.
+2. Import the necessary React libraries and components.
+3. Define a class-based component named Form.
+4. Inside the Form component, initialize a state variable for each form field (e.g., name, email).
+5. Create a method for handling form field changes and updating the state accordingly.
+6. Render a JSX form element with input fields for each form field.
+7. Add event handlers to each input field to trigger the form field change method.
+8. Export the Form component as the default export.
+9. In the App.js file, import and render the Form component.
+
+*Taken from [Practical Exercises in the React JS Tutorial](https://medium.com/@asiandigitalhub/practical-exercises-in-the-react-js-tutorial-b56fdbd8d812)
+
+### Controlled components and uncontrolled components
+
+It is common to call a component with some local state “uncontrolled”.
+
+In contrast, you might say a component is “controlled” when the important information in it is driven by props rather than its own local state. This lets the parent component fully specify its behavior.
+
+Uncontrolled components are easier to use within their parents because they require less configuration. But they’re less flexible when you want to coordinate them together. Controlled components are maximally flexible, but they require the parent components to fully configure them with props.
+
+In practice, “controlled” and “uncontrolled” aren’t strict technical terms—each component usually has some mix of both local state and props. However, this is a useful way to talk about how components are designed and what capabilities they offer.
+
+When writing a component, consider which information in it should be controlled (via props), and which information should be uncontrolled (via state). But you can always change your mind and refactor later.
+
+| Controlled component                                                              | Uncontrolled Component                                                   |
+|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| The component is under control of the component’s state.                          | Components are under the control of DOM.                                 |
+| These components are predictable as are controlled by the state of the component. | Are Uncontrolled because during the life cycle methods the data may loss |
+| Internal state is not maintained                                                  | Internal state is maintained                                             |
+| It accepts the current value as props                                             | We access the values using refs                                          |
+| Does not maintain its internal state.                                             | Maintains its internal state.                                            |
+| Controlled by the parent component.                                               | Controlled by the DOM itself.                                            |
+| Have better control on the form data and values                                   | Has very limited control over form values and data                       |
+
+📄 Read more detailed information - [Controlled vs Uncontrolled Components in ReactJS](https://www.geeksforgeeks.org/controlled-vs-uncontrolled-components-in-reactjs/)
+
+### Forms in React
+
+The [built-in browser `<form>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) lets you create interactive controls for submitting information.
+
+```jsx
+<form action={search}>
+    <input name="query" />
+    <button type="submit">Search</button>
+</form>
+```
+
+#### Props
+
+`<form>` supports all [common element props](https://react.dev/reference/react-dom/components/common#props).
+
+[action](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#action): a URL or function. When a URL is passed to `action` the form will behave like the HTML form component. When a function is passed to `action` the function will handle the form submission. The function passed to `action` may be async and will be called with a single argument containing the form data of the submitted form. The `action` prop can be overridden by a `formAction` attribute on a `<button>`, `<input type="submit">`, or `<input type="image">` component.
+
+#### Warning
+
+When a function is passed to `action` or `formAction` the HTTP method will be POST regardless of value of the `method` prop.
+
+📄 Read about `<form>` usage - [Usage](https://react.dev/reference/react-dom/components/form#usage)
+
+### Exercises 👩‍💻🧑‍💻:
+
+[React form practice](https://codesandbox.io/p/sandbox/react-form-practice-jvnn9?file=%2Fsrc%2Findex.js)
+
+### Conditional rendering
+
+In React, there is no special syntax for writing conditions. Instead, you’ll use the same techniques as you use when writing regular JavaScript code. For example, you can use an [if](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement to conditionally include JSX:
+
+```jsx
+let content;
+if (isLoggedIn) {
+  content = <AdminPanel />;
+} else {
+  content = <LoginForm />;
+}
+return (
+  <div>
+    {content}
+  </div>
+);
+```
+
+If you prefer more compact code, you can use the [conditional ? operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator). Unlike if, it works inside JSX:
+
+```jsx
+<div>
+  {isLoggedIn ? (
+    <AdminPanel />
+  ) : (
+    <LoginForm />
+  )}
+</div>
+```
+
+When you don’t need the `else` branch, you can also use a shorter [logical && syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation):
+
+```jsx
+<div>
+  {isLoggedIn && <AdminPanel />}
+</div>
+```
+
+All of these approaches also work for conditionally specifying attributes.
+
+## Further Reading
+- 📄 [An Introduction to React Events](https://dev.to/misszamzam/an-introduction-to-react-events-4l6m)
+- 📄 [Handling React Events - A Detailed Guide](https://www.knowledgehut.com/blog/web-development/handling-react-events-guide)
+- 📄 [Conditional rendering](https://react.dev/learn/conditional-rendering)
+- 👩‍💻🧑‍💻 Exercises: [React handlings inputs & events](https://codesandbox.io/p/sandbox/react-handling-inputs-events-practice-i12p1?file=%2Fsrc%2Findex.js)
+
