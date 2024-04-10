@@ -1,0 +1,268 @@
+---
+title: 'React Router'
+description: Routing | React | RefugeesCode | React Router | React Routing
+---
+
+  
+# REACT ROUTER
+## Introduction
+
+`react-router-dom` also called react router, is a third-party library used in web applications built with React. It provides a robust solution for handling routing in your applications.
+
+ 
+**Routing** is the ability to move between different parts of an application when a user enters a URL or clicks an element (like a link) within the application.
+
+ 
+Since React is Single Page Application we will need to render different components depending on the current route to simulate the navigation.
+
+## Goals
+
+
+-  [ ] Understand React routing
+-  [ ] Route your React components
+-  [ ] Create a navigation bar
+
+## Basic tools
+
+[React router documentation - Adding a router](https://reactrouter.com/en/main/start/tutorial#adding-a-router)
+[How to use React Router v6 in React apps](https://blog.logrocket.com/react-router-v6-guide/)
+
+## Contents
+### Declarative Routing:
+
+
+When the URL matches a certain pattern, the corresponding component is rendered. Let's say you have a website with a Home page, About page and Contact page. In declarative routing, you would set up rules like this:
+
+  
+* If the URL is `/`, show the Home page.
+* If the URL is `/about`, show the About page.
+* If the URL is `/contact`, show the Contact page.
+
+
+In code, using `react-router-dom`, it would look something like this:
+
+```jsx
+
+import { BrowserRouter  as  Router, Route } from  "react-router-dom";
+import  Home  from  "./components/Home";
+import  About  from  "./components/About";
+import  Contact  from  "./components/Contact"
+
+//...other imports here
+
+
+function  App() {
+  return (
+  <Router>
+    <Route  path="/"  exact  component={Home}  />
+    <Route  path="/about"  component={About}  />
+    <Route  path="/contact"  component={Contact}  />
+  </Router>
+);
+
+}
+
+```
+
+In this code, `Home`, `About`, and `Contact` are React components that render the content for each page. The `path` prop in the `Route` component is the URL that **will trigger the component to be shown**. When the URL in the browser matches the path, the corresponding component is displayed. This is declarative routing.
+
+
+### Dynamic Routing
+
+It is the ability to define routes that can change based on the application state or user interaction. Let's say you have a blog website where users can click on a blog post to read it. Each blog post has its own unique URL, like `/post/1`, `/post/2`, etc. The number after `/post/` is the ID of the blog post.
+
+Instead of defining a route for each blog post manually, as above, you can define a dynamic route that can handle all blog posts:
+
+```jsx
+
+<Route  path="/post/:id"  component={BlogPost}  />
+
+``` 
+
+### Route Parameters
+
+
+It allows you to capture <b>dynamic parts of the URL</b> as parameters, which can be used to dynamically load data based on the route. If you define the following route:
+
+
+```jsx
+
+<Route  path="/post/:id"  component={BlogPost}  />
+
+```
+
+In this route, `:id` is a placeholder for the ID of the blog post. When a user goes to a URL like `/post/1`, the `BlogPost` component is shown, and it can access the ID (`1` in this case) from the route parameters to load the correct blog post.
+
+
+```jsx
+
+function  BlogPost({ match }) {
+  const  postId = match.params.id;
+// Now you can use postId to load the correct book from DB4
+}
+
+```
+
+
+### Navigation
+
+`react-router-dom` provides `<Link/>` and `<Redirect/>` components.
+
+
+`<Link/>`: This component is used to create links in your application. It's similar to using an `<a>` tag in HTML, but it has the advantage of not causing a full page refresh when the link is clicked. Instead, it updates the URL and renders the new component without refreshing the page. Here's an example:
+
+  
+
+```jsx
+
+import { Link } from  "react-router-dom";
+
+function  NavBar() {
+  return (
+    <nav>
+      <Link  to="/">Home</Link>
+      <Link  to="/about">About</Link>
+      <Link  to="/contact">Contact</Link>
+    </nav>
+  );
+}
+
+export  default  NavBar;
+
+```
+
+In this example, clicking on `Home`, `About`, or `Contact` will change the URL to `/`, `/about`, or `/contact` respectively
+
+`<Redirect>`: This component is used to automatically redirect from one route to another. It's useful when you want to redirect the user based on some condition. For example, if a user tries to access a page they're not authorized to see, you can redirect them to a login page. Here's an example:
+
+```jsx
+
+import { Redirect } from  "react-router-dom";
+ 
+function  SecretPage({ isLoggedIn }) {
+  if (!isLoggedIn) {
+    return  <Redirect  to="/login"  />;
+  }
+    return  <h2>Welcome to the secret page!</h2>;
+}
+
+
+export  default  SecretPage;
+
+```
+
+In this example, if the user is not logged in (`isLoggedIn` is `false`), they are redirected to the `/login` page. If they are logged in, they see the message "Welcome to the secret page!".
+
+  
+
+Remember, to use these components, you need to be inside a component that is wrapped with the `<BrowserRouter>` (or `<Router>`) component from `react-router-dom`. This is usually done at the top level of your application.
+  
+
+## Implementation of react-router-dom
+
+The command to install react-router-dom as a dependency is
+
+```bash
+
+npm i react-router-dom
+
+```
+  
+
+### Wrap in Browser Router
+
+
+Wrap the app childs with the `<BrowserRouter/>` component, and then wrap your Route components in the Routes.
+
+The `<Routes>` component is a container for `<Route>` components. It renders the first `<Route>` that matches the current location.
+
+
+In the `<Route/>` component the `path` prop is used to define the URL path, and the `element` prop is used to define the component that should be rendered for that path.
+
+
+`react-router-dom` uses inclusive matching. This means that if you have a Route with a path of `/`, it will also match `/about`, `/contact`, etc., because they all start with `/`.
+
+
+Use `exact` in `<Route/>`to make sure its component it is only rendered if the URL matches exactly the `path`. [More on this](https://stackoverflow.com/questions/49162311/react-difference-between-route-exact-path-and-route-path)
+
+  
+The path `*` means any path. Therefore it is very important to place it last one, since `<Routes/>` will trigger the first route whose `path` matches.
+
+ 
+
+```jsx
+
+//Import BrowserRouter, Routes and Route from the library
+
+import { BrowserRouter, Routes, Route } from  "react-router-dom";
+import  Home  from  "./Home";
+import  Blogs  from  "./Blogs";
+import  Contact  from  "./Contact";
+import  NoPage  from  "./NoPage";
+import  NavBar  from  "./NavBar";
+  
+
+export  default  function  App() {
+
+  return (
+
+//Wrap your routes in BrowserRouter component
+
+  <BrowserRouter>
+    <NavBar  />
+    <Routes>
+      <Route  exact  path="/"  element={<Home  />}  />
+      <Route  path="/blogs"  element={<Blogs  />}  />
+      <Route  path="/contact"  element={<Contact  />}  />
+      <Route  path="*"  element={<NoPage  />}  />
+    </Routes>
+  </BrowserRouter>
+);
+
+}
+
+```
+
+Notice that the `<NavBar/>` component is out of the `<Routes>` component, so it will be always rendered regardless of the URL visited.
+  
+
+### Set Up the Navigation Bar
+
+This is an example of a navigation bar for the previous App using the `<Link>`component.
+
+
+```jsx
+
+import { Link } from  "react-router-dom";
+
+function  NavBar() {
+  return (
+    <nav>
+      <Link  to="/">Home</Link>
+      <Link  to="/blogs">Blogs</Link>
+      <Link  to="/contact">Contact</Link>
+    </nav>
+);
+
+}
+
+export  default  NavBar;
+
+```
+  
+
+## Exercise
+
+-  [ ] Create a new react app with `create-react-app`
+-  [ ] Create components: Header, Main Footer, Home, Contact, About, Product and NotFound and import them in the App component.
+-  [ ] Install React Router
+-  [ ] Create the following routes for your components
+
+-  `/` renders Home component
+-  `/contact` -> renders Contact component
+-  `/about` -> renders About component
+-  `/products/:id` -> renders Product component
+- Any other url will render NotFound
+
+-  [ ] Create a navigation bar with links to Home, Contact, About and Product
+-  [ ] Header, Main and Footer are always rendered regardless of the URL visited

@@ -102,7 +102,15 @@
     #   link: '/vue/components'
 - label: ReactJS
   items:
+    - label: 'Introduction'
+      link: '/react-js/introduction'
     - label: 'States'
       link: '/react-js/states'
     - label: 'Events & forms'
       link: '/react-js/events-forms'
+    - label: 'React Router'
+      link: '/react-js/router'
+    - label: 'API calls'
+      link: '/react-js/apiCalls-tbd'
+    - label: 'Styling in React Sass'
+      link: '/react-js/sass'
