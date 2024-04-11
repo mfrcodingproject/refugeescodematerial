@@ -12,20 +12,21 @@ description: Routing | React | RefugeesCode | React Router | React Routing
  
 **Routing** is the ability to move between different parts of an application when a user enters a URL or clicks an element (like a link) within the application.
 
- 
-Since React is Single Page Application we will need to render different components depending on the current route to simulate the navigation.
+
+Since React is used for Single Page Applications we will need to render different components depending on the current route to simulate the navigation.
 
 ## Goals
 
 
 -  [ ] Understand React routing
--  [ ] Route your React components
--  [ ] Create a navigation bar
+-  [ ] Routing your React components
+-  [ ] Creation of a navigation bar
 
 ## Basic tools
 
-[React router documentation - Adding a router](https://reactrouter.com/en/main/start/tutorial#adding-a-router)
-[How to use React Router v6 in React apps](https://blog.logrocket.com/react-router-v6-guide/)
+- [How to use React Router v6 in React apps](https://blog.logrocket.com/react-router-v6-guide/)
+- [React router documentation - Adding a router](https://reactrouter.com/en/main/start/tutorial#adding-a-router)
+
 
 ## Contents
 ### Declarative Routing:
@@ -34,9 +35,9 @@ Since React is Single Page Application we will need to render different componen
 When the URL matches a certain pattern, the corresponding component is rendered. Let's say you have a website with a Home page, About page and Contact page. In declarative routing, you would set up rules like this:
 
   
-* If the URL is `/`, show the Home page.
-* If the URL is `/about`, show the About page.
-* If the URL is `/contact`, show the Contact page.
+* If the URL is `/`, your app shows the Home page.
+* If the URL is `/about`, your app shows the About page.
+* If the URL is `/contact`, your app shows the Contact page.
 
 
 In code, using `react-router-dom`, it would look something like this:
@@ -91,14 +92,14 @@ It allows you to capture <b>dynamic parts of the URL</b> as parameters, which ca
 
 ```
 
-In this route, `:id` is a placeholder for the ID of the blog post. When a user goes to a URL like `/post/1`, the `BlogPost` component is shown, and it can access the ID (`1` in this case) from the route parameters to load the correct blog post.
+In this route, `:id` is a placeholder for the ID of the blog post. When a user goes to a URL like `/post/1`, the `BlogPost` component is shown, and it can access the ID (With value `"1"` in this case) from the route parameters to load the correct blog post.
 
 
 ```jsx
 
 function  BlogPost({ match }) {
   const  postId = match.params.id;
-// Now you can use postId to load the correct book from DB4
+// Now you can use postId to load the correct book from DB
 }
 
 ```
@@ -131,7 +132,7 @@ export  default  NavBar;
 
 ```
 
-In this example, clicking on `Home`, `About`, or `Contact` will change the URL to `/`, `/about`, or `/contact` respectively
+In this example, clicking on `Home`, `About`, or `Contact` will change the URL to `/`, `/about`, or `/contact` respectively.
 
 `<Redirect>`: This component is used to automatically redirect from one route to another. It's useful when you want to redirect the user based on some condition. For example, if a user tries to access a page they're not authorized to see, you can redirect them to a login page. Here's an example:
 
@@ -155,7 +156,7 @@ In this example, if the user is not logged in (`isLoggedIn` is `false`), they ar
 
   
 
-Remember, to use these components, you need to be inside a component that is wrapped with the `<BrowserRouter>` (or `<Router>`) component from `react-router-dom`. This is usually done at the top level of your application.
+Remember, to use these components you need to be inside a component that is wrapped in the `<BrowserRouter>` (or `<Router>`) component from `react-router-dom`. This is usually done at the top level of your application.
   
 
 ## Implementation of react-router-dom
