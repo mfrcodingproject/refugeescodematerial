@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=#root, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- A div element with id 'root' where our React app will be mounted -->
+    <div id="root"></div>
+    <!-- Importing the React library -->
+    <script src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+    <!-- Importing the ReactDOM library, which provides DOM-specific methods -->
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+    <!-- Importing Babel which will transpile React into regular JavaScript -->
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <!-- Our React code goes here -->
+    <script type="text/babel">
+        // Getting a reference to the 'root' div
+        const rootElement = document.getElementById("root")
+        // Creating a simple JSX element
+        const element = <div>Hello World!</div>
+        // Rendering our JSX element inside the 'root' div
+        ReactDOM.render(element, rootElement)
+    </script>
+</body>
+
+</html>
