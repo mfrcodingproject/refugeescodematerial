@@ -54,9 +54,9 @@ import  Contact  from  "./components/Contact"
 function  App() {
   return (
   <Router>
-    <Route  path="/"  exact  component={Home}  />
-    <Route  path="/about"  component={About}  />
-    <Route  path="/contact"  component={Contact}  />
+    <Route  path="/"  exact  element={<Home/>}  />
+    <Route  path="/about"  element={<About/>}  />
+    <Route  path="/contact"  element={<Contact/>}  />
   </Router>
 );
 
@@ -75,7 +75,7 @@ Instead of defining a route for each blog post manually, as above, you can defin
 
 ```jsx
 
-<Route  path="/post/:id"  component={BlogPost}  />
+<Route  path="/post/:id"  element={<BlogPost/>}  />
 
 ``` 
 
@@ -87,7 +87,7 @@ It allows you to capture <b>dynamic parts of the URL</b> as parameters, which ca
 
 ```jsx
 
-<Route  path="/post/:id"  component={BlogPost}  />
+<Route  path="/post/:id"  element={<BlogPost/>}  />
 
 ```
 
