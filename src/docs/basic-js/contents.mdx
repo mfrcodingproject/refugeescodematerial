@@ -426,9 +426,32 @@ Ok, with this introduction let's get to it with this 📖 article [You can have 
 5. [Logical Order in If Else Statements](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/logical-order-in-if-else-statements)
 6. [Chaining If Else Statements](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/chaining-if-else-statements)
 
+### Arrays
+
+Until now we've only dealt with single values, like a number or a string. But often we want to have collections of information. Imagine our restaurant kitchen. We need a list of orders that customers make for the kitchen to make them. Or a list of items in our menu. That's where arrays come in handy.
+
+An **array** is a list of values (strings, numbers, booleans, etc.) that we can have in order, one after the other. We can also save the list itself to a variable in order to do more advanced things, like do an operation on every item of the list, reverse it, split it, and many more.
+
+```js
+const menuItems = ["beef_kebab", "roast_chicken", "rice", "salad"];
+```
+
+[Here](https://docs.google.com/presentation/d/e/2PACX-1vT980rtiuFbM2NM9YBGombr7gAbgMjlQZVFWynaAbxfWMTGUXjn6D6cwLmaT3KAyA/pub?start=false&loop=false&delayms=3000) is an introduction to the concept. You can use the arrow keys to navigate through the slides.
+
+And [here](https://docs.google.com/presentation/d/e/2PACX-1vT25rGP1KF6hL07MiL0wvIkzeuWWxgKrpEC0WFeOSLSTJb0BBcAmhRe0Zd0rn8SYg/pub?start=false&loop=false&delayms=3000) we have info on arrays properties and methods. This is how we work with arrays.
+
 ### Loops and iteration
 
-In programming, **Loops** are used to repeat a block of code (iteration). For example, you can use them to run the same code over and over again, each time with a different value, or if you want to show a message 100 times, then you can use a loop. It's just some examples; you can achieve much more with loops. The most important loops are: `for`, `while`, `do...while`. You can read more information in this 📖 article [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+In programming, **Loops** are used to repeat a block of code many times. For example, if you want to run some code 5 times, loops allow us to write it once, but make the computer run it 5 times. Or if you have an array and want to perform an action for every item in the array.
+
+[Here](https://docs.google.com/presentation/d/e/2PACX-1vSXvwLF1aZB7AHtbwbQG0Cf0O6TADkPQYEn5_hLWCtnLghDRC6L_gipSfX-6Szbvw/pub?start=false&loop=false&delayms=3000) we have an explanation of how loops work.
+
+There's various types of loops. The one you'll be using most (and the easier to understand) is `for ... of`. It's also useful to understand and be able to write the basic `for` (the scary looking one in the slides) and the `while` loops, as well as the `break` and `continue` keywords. You can read about them in this 📖 article [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+
+There's a couple more loops that we can throw in, even though will make more sense further on in the course.
+
+1. The `for ... in` loop when we get to the "Objects" section of the course.
+2. The [forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) array method. It will loop through the array's items, similarly to a `for ... of`, running an **anonymous function** for each item, which will see in the "Functions" section.
 
 **Exercises on FreeCodeCamp**
 
@@ -443,10 +466,6 @@ In programming, **Loops** are used to repeat a block of code (iteration). For ex
 5. [Nesting For Loops](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/nesting-for-loops)
 6. [Iterate with JavaScript Do...While Loops](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/iterate-with-javascript-do---while-loops)
 7. [Iterate Through an Array with a For Loop](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/iterate-through-an-array-with-a-for-loop)
-
-### Arrays
-
-**Arrays** are lists of values that can be stored in **variables** and dealt with in much the same way as any other type of value, the difference being that we can access each value inside the list individually, and do super useful and efficient things with the list, like loop through it and do the same thing to every value. Exciting, isn't it? Let's get a brighter picture with this 📖 article [What is an array?](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Arrays#what_is_an_array)
 
 **Exercises on FreeCodeCamp**
 
