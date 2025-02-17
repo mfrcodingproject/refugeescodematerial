@@ -3,7 +3,7 @@ title: "JavaScript fundamentals"
 description: JavaScript fundamentals
 ---
 
-## Building blocks
+# Building blocks
 
 Before extending the functionality of our website with JavaScript and manipulate the content of our website, we have to go through the basics of programming. The most fundamental building blocks are:
 
@@ -12,7 +12,7 @@ Before extending the functionality of our website with JavaScript and manipulate
 -   Loops
 -   Functions
 
-### Variables
+## Variables
 
 JavaScript **variables** are containers for storing data values. The 3 containers that you need to keep in mind are: `var`, `const` & `let` ; and naming also plays an important role. This 📖 article [What is a variable?](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables#what_is_a_variable), will give you a wide understanding of these concepts, and you will also find an introducction to **Arrays []** that we will cover further in more detail**.**
 
@@ -96,7 +96,7 @@ console.log(movie);
 
 📖 What about this one?
 
-#### Variable types
+### Variable types
 
 There's two main type types of variables: `let` & `const`. The difference is that while with `let` we can reassign the variable to a new value, with `const` we can't. Once we declare the variable, we won't be able to change the value inside it. Maybe now it doesn't make much sense but sometimes we want to make sure that some values don't change.
 
@@ -108,7 +108,7 @@ const gravity = 9.8;
 
 There is a third variable type: `var`, but it's an old way of writing JavaScript and we don't need to worry about it. If you come across some code using it, just know that it's almost the same as `let`.
 
-### Keywords, operators
+## Keywords, operators
 
 In every programming language there's special words and symbols that the computer will understand as instructions.
 
@@ -126,7 +126,7 @@ const let = 2; // SyntaxError
 
 When these words and symbols are instructions, they are called **operators**. For example, the symbol `=` will express that we want to assign the value on the right ('Hello world!') to the variable we're creating (myVar).
 
-### Data types
+## Data types
 
 There is a set of different types of values JavaScript will understand:
 
@@ -157,11 +157,11 @@ There are two more advanced types. It's not necessary to get into them:
 > numberOfPets = "Hello world!";
 > ```
 
-#### Number
+### Number
 
 Any number between -9007199254740991 and 9007199254740991.
 
-##### Arithmetic operators
+#### Arithmetic operators
 
 We can make mathematical operations like sum and division.
 Here's a [list](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#arithmetic_operators) of the available arithmetic operators.
@@ -173,15 +173,13 @@ console.log(4 / 2);
 
 One operator that might be unfamiliar is the modulo (%) operator. In programming it's not related to percentages. Instead it will give you the [remainder](https://www.mathsisfun.com/numbers/division-remainder.html) of a division. A use case is to know if a number is even or odd. If you divide an even number by 2, the remainder will be 0, but the remainder of an odd number divided by 2 will be 1.
 
-> Note that a artihmetic operation is an **expression**, and it will be resolved before other operations.
+> Note that a artihmetic operation is an **expression**, and it will be resolved before other operations. First, the computer evaluates 2 + 2, then stores the result in the variable.
 >
 > ```js
 > const sum = 2 + 2;
 >
 > console.log(sum); // 4
 > ```
->
-> First, the computer evaluates 2 + 2, then stores the result in the variable.
 
 We can also assign different values to variables and use the variable names instead of the values themselves
 
@@ -191,13 +189,15 @@ const secondValue = 3;
 
 console.log(firstValue - secondValue); // 1
 
+// two different ways to do the same thing
+
 const partial = 2 + 2;
 const total = partial - 3;
 
 console.log(total); // 1
 ```
 
-##### Mathematical assignment operators
+#### Mathematical assignment operators
 
 Imagine we're in a restaurant's kitchen and we have a variable named `orders`, which keeps track of the amount of orders the costumers have been placing.
 
@@ -246,7 +246,7 @@ console.log(orders);
 Here we're using a new **assignment operator** (+=). The result is exactly the same as the previous example but it's a slightly easier way of writing it.
 There's more assignment operators that you can check out [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators). Take a look at the mathematical ones and don't worry about the rest. You will probably never ever use them.
 
-##### Increment/decrement operators
+#### Increment/decrement operators
 
 And sometimes you just want to count up (1, 2, 3, ...) or down (10, 9, 8, ...) a number. There's operators for that too.
 
@@ -264,7 +264,7 @@ console.log(count); // 0
 
 The increment operator (++) will simply add 1 to the value in the varible. The decrement operator (--) will subtract 1.
 
-##### `Math` operations
+#### `Math` operations
 
 There's more complex operations we can perform with the object `Math`. It might seem a little bit like magic now, but when we get to **functions** it will make more sense.
 There's operations like rounding decimals in a value,
@@ -283,7 +283,7 @@ const random = Math.random();
 console.log(random); // 0.3
 ```
 
-#### String
+### String
 
 In order for the computer to understand that what we are writing is some plain text value and not part of our code instructions, we need to surround it using one of these three symbols:
 
@@ -291,7 +291,7 @@ In order for the computer to understand that what we are writing is some plain t
 2. Quotation marks: `"Hello world!"`
 3. Backticks: `` `Hello world!` ``
 
-##### Concatenation
+#### Concatenation
 
 There's many cases in which we want to join to pieces of text. For example, here we have the general greeting, and the username and we need to combine them.
 
@@ -312,7 +312,7 @@ gretting += "Zainab";
 console.log(greeting); // Hello, Zainab
 ```
 
-##### Interpolation
+#### Interpolation
 
 There's another way of joining strings together using variables. The syntax looks a little funny but it's shorter when you want to use multiple variables. It looks like this:
 
@@ -326,11 +326,11 @@ const fullString = `Email sent to ${sentTo} on ${date} at ${time}.`;
 console.log(fullString); // Email sent to zainab.rf@outlook.com on February 6th, 2025 at 10:45 pm.
 ```
 
-##### String methods
+#### String methods
 
 Strings have tools called methods (which we will get to explain more in depth in the "Objects" chapter) to make our life a little easier when dealing with them. Let's start with a basic one:
 
-###### Length
+##### Length
 
 With this method we can automatically get the number of characters in the given string. All we need to do is write a dot after our string (.) and type `length`. Notice that it will count every character in the string, including blank spaces and symbols.
 
@@ -342,7 +342,7 @@ const numberOfCharacters = paragraph.length;
 console.log(numberOfCharacters); // 55
 ```
 
-###### Includes
+##### Includes
 
 This method will check if a string contains a certain _substring_, that is a smaller string inside of it. Notice how it lowercase and uppercase letters count as different characters. This method gives us one of two values: true or false. These values are called **boolean** and will be very useful for the "Conditionals" section comming up.
 
@@ -358,7 +358,7 @@ console.log(uppercase); // false
 
 > There's a lot more methods. Some will look very scary until we take a look at "Arrays". Here's a [list](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Useful_string_methods) of some common ones and a little explanation for each. And [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes) we have all of the available ones.
 
-### `typeof` operator
+## `typeof` operator
 
 What if we have a value and we want to check what type it is? We have a handy tool for that. We will place the `typeof` operator before our variable and it will give us a string with the name of the type
 
@@ -373,34 +373,6 @@ console.log(typeof otherAmount); // string
 ```
 
 See what happened with our variable `otherAmount`? When we place one character or more (like letters, numbers, symbols, ...) inside apostrophes (''), quotes ("") or backticks (``), we are telling the computer that we want it to take it as text.
-
-### Comments in JavaScript
-
-Follow the instructions in this 🖥 [tutorial](https://www.bitdegree.org/learn/javascript-comment), and you'll learn how to write JavaScript comments and be able to leave notes in your JavaScript code.
-
-> Even though it's not strictly required, it's very useful to start learning _shortcuts_ for VSCode. A shortcut is a combination of keys that perform a specific action.
-> For example, to make a single line comment, place the cursor in a line with text and then press `command` + `/` if you're on a Mac computer, or `control` + `/` if you're on a PC computer.
-> And for a multiline comment, select a piece of text by clicking and dragging your mouse, then press `alt` + `shift` + `a`.
->
-> 📖 Try these two types of comments by writing them and by using shortcuts.
-
-### Conditionals
-
-**Conditional statements** allow us to represent decision making in JavaScript, from the choice that must be made (e.g. "one cookie or two"), to the resulting outcome of those choices. The most common type of conditional statement is the `if...else` and the operators to keep in mind are:
-
-`===` means equal
-
-`!==` means not equal
-
-`<` or `>` test if one value is less than or greater than another.
-
-`<=` or `>=` test if one value is less than or or equal to, greater than or equal to.
-
-`&&` means AND
-
-`||` means OR
-
-Ok, with this introduction let's get to it with this 📖 article [You can have it on one condition..!](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
 
 **Exercises on FreeCodeCamp**
 
@@ -417,6 +389,33 @@ Ok, with this introduction let's get to it with this 📖 article [You can have 
 7. [Constructing strings with variables](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/constructing-strings-with-variables)
 8. [Use bracket notation to find the first character in a string](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/use-bracket-notation-to-find-the-first-character-in-a-string)
 
+## Comments in JavaScript
+
+Follow the instructions in this 🖥 [tutorial](https://www.bitdegree.org/learn/javascript-comment), and you'll learn how to write JavaScript comments and be able to leave notes in your JavaScript code.
+
+> Even though it's not strictly required, it's very useful to start learning _shortcuts_ for VSCode. A shortcut is a combination of keys that perform a specific action.
+> For example, to make a single line comment, place the cursor in a line with text and then press `command` + `/` if you're on a Mac computer, or `control` + `/` if you're on a PC computer.
+> And for a multiline comment, select a piece of text by clicking and dragging your mouse, then press `alt` + `shift` + `a`.
+> 📖 Try these two types of comments by writing them and by using shortcuts.
+
+## Conditionals
+
+**Conditional statements** allow us to represent decision making in JavaScript, from the choice that must be made (e.g. "one cookie or two"), to the resulting outcome of those choices. The most common type of conditional statement is the `if...else` and the operators to keep in mind are:
+
+`===` means equal
+
+`!==` means not equal
+
+`<` or `>` test if one value is less than or greater than another.
+
+`<=` or `>=` test if one value is less than or or equal to, greater than or equal to.
+
+`&&` means AND
+
+`||` means OR
+
+[Here](https://docs.google.com/presentation/d/e/2PACX-1vQczsEd-RYUGUZu9oHbLjRUwbIWdu_Wj0piGMbPMtDSEkzE3ixljeQTiye1r5gLNg/pub?start=false&loop=false&delayms=3000) you have a step by step explanation of the different type of conditionals in slides. You can also check out [this tutorial](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals) in the JavaScript's official documentation page.
+
 -   **Conditional statements exercises**
 
 1. [Comparison with the Equality Operator](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/comparison-with-the-equality-operator)
@@ -426,7 +425,7 @@ Ok, with this introduction let's get to it with this 📖 article [You can have 
 5. [Logical Order in If Else Statements](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/logical-order-in-if-else-statements)
 6. [Chaining If Else Statements](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/chaining-if-else-statements)
 
-### Arrays
+## Arrays
 
 Until now we've only dealt with single values, like a number or a string. But often we want to have collections of information. Imagine our restaurant kitchen. We need a list of orders that customers make for the kitchen to make them. Or a list of items in our menu. That's where arrays come in handy.
 
@@ -436,11 +435,23 @@ An **array** is a list of values (strings, numbers, booleans, etc.) that we can 
 const menuItems = ["beef_kebab", "roast_chicken", "rice", "salad"];
 ```
 
-[Here](https://docs.google.com/presentation/d/e/2PACX-1vT980rtiuFbM2NM9YBGombr7gAbgMjlQZVFWynaAbxfWMTGUXjn6D6cwLmaT3KAyA/pub?start=false&loop=false&delayms=3000) is an introduction to the concept. You can use the arrow keys to navigate through the slides.
+[Here](https://docs.google.com/presentation/d/e/2PACX-1vT980rtiuFbM2NM9YBGombr7gAbgMjlQZVFWynaAbxfWMTGUXjn6D6cwLmaT3KAyA/pub?start=false&loop=false&delayms=3000) is an introduction to the concept of **arrays**. You can use the arrow keys to navigate through the slides.
 
 And [here](https://docs.google.com/presentation/d/e/2PACX-1vT25rGP1KF6hL07MiL0wvIkzeuWWxgKrpEC0WFeOSLSTJb0BBcAmhRe0Zd0rn8SYg/pub?start=false&loop=false&delayms=3000) we have info on arrays properties and methods. This is how we work with arrays.
 
-### Loops and iteration
+**Exercises on FreeCodeCamp**
+
+-   **Array Exercises**
+
+1. [Store multiple values in one variable using javascript arrays](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/store-multiple-values-in-one-variable-using-javascript-arrays)
+2. [Nest one array within another array](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/nest-one-array-within-another-array)
+3. [Access Multi-Dimensional Arrays With Indexes](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/access-multi-dimensional-arrays-with-indexes)
+4. [Manipulate Arrays With push()](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-push)
+5. [Manipulate Arrays With pop()](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-pop)
+6. [Manipulate Arrays With shift()](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-shift)
+7. [Manipulate Arrays With unshift()](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-unshift)
+
+## Loops and iteration
 
 In programming, **Loops** are used to repeat a block of code many times. For example, if you want to run some code 5 times, loops allow us to write it once, but make the computer run it 5 times. Or if you have an array and want to perform an action for every item in the array.
 
@@ -467,21 +478,7 @@ There's a couple more loops that we can throw in, even though will make more sen
 6. [Iterate with JavaScript Do...While Loops](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/iterate-with-javascript-do---while-loops)
 7. [Iterate Through an Array with a For Loop](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/iterate-through-an-array-with-a-for-loop)
 
-**Exercises on FreeCodeCamp**
-
-💡 🌟 Until here, we have covered the most important tools in order to start writing your first functions and telling your computer what you want to achieve. 🤘 Let's keep rocking this learning path with some exercises from FreeCodeCamp.
-
--   **Array Exercises**
-
-1. [Store multiple values in one variable using javascript arrays](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/store-multiple-values-in-one-variable-using-javascript-arrays)
-2. [Nest one array within another array](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/nest-one-array-within-another-array)
-3. [Access Multi-Dimensional Arrays With Indexes](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/access-multi-dimensional-arrays-with-indexes)
-4. [Manipulate Arrays With push()](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-push)
-5. [Manipulate Arrays With pop()](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-pop)
-6. [Manipulate Arrays With shift()](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-shift)
-7. [Manipulate Arrays With unshift()](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-unshift)
-
-### Functions
+## Functions
 
 A **function** is a code snippet that can be called by other code or by itself, or a variable that refers to the function. In other words, function definition include the orders and function calls state when to execute those orders. In this 📖 article [Where do I find functions?](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions#where_do_i_find_functions), you'll explore fundamental concepts behind functions such as basic syntax, how to invoke and define them, scope, and parameters.
 
@@ -495,7 +492,7 @@ A **function** is a code snippet that can be called by other code or by itself, 
 2. [Passing Values to Functions with Arguments](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/passing-values-to-functions-with-arguments)
 3. [Return a Value from a Function with Return](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/return-a-value-from-a-function-with-return)
 
-### Exercises for further practice
+## Exercises for further practice
 
 💡 Next, you will find a series of exercises that summarize what you've learnt throughout this lesson and exercises at FreeCodeCamp. Try to do them on your own, we haven't introduced anything new and all of them just go through what you've seen until this section. Remember you can always ask any staff member on Slack. Give it a try!
 
@@ -534,15 +531,15 @@ Imagine you are a famous singer in a band and you want to invite other musicians
 
 Write an array of every musician and its band in a format `musician:band` and using only one console log, display the list of assistants in the console.
 
-## 04. Events and the DOM
+# Events and the DOM
 
-### DOM API
+## DOM API
 
 DOM is the shortcut for: **The Document Object Model**. And what does this means? Well in short "is the data representation of the objects that comprise the structure and content of a document on the web".
 
 Ok, and what does this has to do with JavaScript? Let's read this 📖 article [What is the DOM?](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction#what_is_the_dom) to have a better understanding and how this two connect and what can be achieved.
 
-### Events listeners
+## Events listeners
 
 Now we will have a look at the DOM event Model. First have a look at this [diagram](https://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture) that explains the three phases of event flow through the DOM in the DOM Level 3 Events draft.
 
@@ -554,7 +551,7 @@ There are 3 ways to register event handlers for a DOM element, but we will only 
 
 Still curious about the difference between the 3 methods? 📖 [Read this examples](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events#dom_event_handler_list)
 
-### Event API
+## Event API
 
 The Event interface represents an event which takes place in the DOM. Event handlers may be attached to DOM elements: click on a button, the document, the Window...etc.
 
@@ -562,11 +559,11 @@ When an event occurs as we have seen before, a new `event` object is created thr
 
 Let's have a better look at this concept 📖 [here](https://developer.mozilla.org/en-US/docs/Web/API/Event) and learn about the [Interfaces based on Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)
 
-### Add Event Listener
+## Add Event Listener
 
 `addEventListener()` sets up a function that will be called whenever the specified event is delivered to the target. Ok, let's learn about the Syntax behind this, read the 📖 article about [EventTarget.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
 
-### Exercises on FreeCodeCamp
+## Exercises on FreeCodeCamp
 
 💡Ok, now let's practice these new tools with these exercises at FreeCodeCamp.
 
