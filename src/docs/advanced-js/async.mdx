@@ -1,0 +1,59 @@
+# Asynchronous JavaScript
+
+## Intro
+
+So far we've been writing HTML, CSS and JS in our computer and we open these files in our browser. The browser reads these files and shows the results on the screen. We're building websites, but right now we're the only ones able to see them. The beauty of the internet is that we can see any public website!
+
+### Displaying a website
+
+A website is nothing more than an HTML file along with it's corresponding CSS and JS files, and maybe some others like images or fonts. So if we want to see Google on our browser, how do we get those files?
+
+When type a URL (like `https://www.google.com`) in the search bar and we hit `Enter`, we're downloading the HTML, CSS and JS files that Google gives us and the browser prints the content on the screen.
+If we open the browser's inspector and navigate to the 'Network' tab, we can see all the files that the browser is downloading behind the scenes. It's downloading an HTML file first, along with a couple of CSS files, images, JS files, and more.
+
+![Google's homepage](../../../static/advanced-js/google-homepage-inspected.png)
+
+This communication works a little bit like going to a restaurant. There, we would tell the waiter what we want, the waiter then goes to the kitchen and tells the cooks what the order is, and when the food is ready, the waiter brings the food to our table.
+
+In software development, we call this a _client/server architecture_. The browser is the **client**, which makes a **request** to a computer somewhere else in the world that has the files we're looking for. This remote computer is called the **server**, because it 'serves' the files when anyone requests them. And the **URL** tells the server what files do we want. A URL is the way we have of sending out a message from our computer to get some HTML files from a server. It has a different parts and can get complicated, but what we need to know for now is this:
+
+![URL anatomy](../../../static/advanced-js/url-anatomy.jpg)
+
+The 'scheme' or 'protocol' is the language the two computers will use to talk to each other. If the client doesn't tell the server which protocol it's using, the server will get the request but won't 'understand' it.
+
+The 'domain' is which like the house address of the server. This is to make sure our request gets to the server that has the files we're interested in, and not any other computer in the world!
+
+The we have the 'path', which tells the server which files of the website we want. If there's no path, we're going to get the `index.html` file. But if there's a path we can tell the server we want some other page of the website. For example, if we click the 'Privacy' button in Google's homepage, we will navigate to `https://policies.google.com/privacy`. This request we just made is telling the server: I want the "Privacy" page in the "Policies" section of Google.
+
+### Single Page Apps
+
+Back in the 90's, the only way the web worked was:
+
+1. The user typed a URL on the search bar (www.website.com)
+2. The website's home page HTML file was downloaded and rendered on screen.
+3. The user clicked a link to another page (www.website.com/about-us)
+4. Again, the corresponding page's HTML file was downloaded and rendered on screen.
+   ...
+
+![Client/server 90s](../../../static/advanced-js/client-server-90s.png)
+
+Then later websites got more complex, storing user data in a database in the server and generating HTML with that data which would then be sent to the client, which would render the files.
+
+![Client/server php](../../../static/advanced-js/client-server-php.png)
+
+But with JavaScript and the browser getting more features, websites got more complex and started being more interactive. People started dynamically changing the HTML, without the need to load a new HTML page each time the user interacts (as we've seen in the DOM manipulation section of the course). This eventually grew into what we call SPAs (Single Page Applications). This is an architecture we only get one index.html page at the beginning and everything we see on the page is done through Javascript (which we'll do when we start using React).
+
+In this last scenario, we still need information from the server. For example, if we log into Facebook, we see our own username, our profile picture, our friend's posts, etc. That is all information stored somewhere that's not our computer. And with JavaScript, we can get just the information we need from the server.
+
+![Client/server json](../../../static/advanced-js/client-server-json.png)
+
+## Talking to the server
+
+To make these requests from our JavaScript code, we can use a simple built-in function: `fetch()`
+The first way to use it is by passing it a URL as it's argument. Here's a code example:
+
+```js
+const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+const data = await response.json();
+console.log(data);
+```
