@@ -1,8 +1,8 @@
 # Functions in depth
 
-A good programming language is more that just a mean for instructing a computer to perform tasks. It also help us think about the processes, by providing a way to **combine simple ideas to form more complex ones**.
+A good programming language is more that just a mean for instructing a computer to perform tasks. It also help us think about the processes, by providing a way to **combine simple ideas to form more complex ones**.
 
-Abstractions allow to write bigger pieces of code in terms of simpler elements. This is similar to a natural language, where we define new terms so we can refer to them later without giving all the details again. JavaScript has two means by which compound elements can be named and manipulated as units: **functions** and **objects**.
+Abstractions allow to write bigger pieces of code in terms of simpler elements. This is similar to a natural language, where we define new terms so we can refer to them later without giving all the details again. JavaScript has two means by which compound elements can be named and manipulated as units: **functions** and **objects**.
 
 Functions are descriptions of the rules for manipulating data. They create abstractions around procedures, that is, a series of steps that we want to make on some given elements to produce a result. They take arguments and return a value, in a way similar to functions in mathematics.
 
@@ -56,8 +56,7 @@ Functions can call themselves as part of their computation. For example, the fol
 
 ```jsx
 function factorial(n) {
-    if (n === 0)
-        return 1;
+    if (n === 0) return 1;
 
     return n * factorial(n - 1);
 }
